@@ -319,7 +319,7 @@ details .a-media img,details .a-media video{width:100%;height:100%;object-fit:co
 @media(max-width:700px){details .a-wrap.has-media{grid-template-columns:1fr}}
 </style><style id="nv-nav-glass">
 .nav{background:transparent!important;box-shadow:none!important;transition:background .5s ease,box-shadow .5s ease,padding .5s ease,backdrop-filter .5s ease}
-.nav.scrolled{background:rgba(251,247,240,.68)!important;backdrop-filter:blur(20px) saturate(1.4)!important;-webkit-backdrop-filter:blur(20px) saturate(1.4)!important;box-shadow:0 1px 0 rgba(40,30,20,.07)!important;padding-top:12px!important;padding-bottom:12px!important}
+.nav.scrolled{background:rgba(251,247,240,.38)!important;backdrop-filter:blur(26px) saturate(1.6)!important;-webkit-backdrop-filter:blur(26px) saturate(1.6)!important;box-shadow:0 1px 0 rgba(40,30,20,.05),inset 0 -0.5px 0 rgba(255,255,255,.4)!important;padding-top:12px!important;padding-bottom:12px!important}
 </style><style id="nv-ui-unify">
 /* ховер навигации */
 .nav .navlink{position:relative}
@@ -331,8 +331,7 @@ details .a-media img,details .a-media video{width:100%;height:100%;object-fit:co
 .langdd.open .langdd-panel{opacity:1;visibility:visible;pointer-events:auto}
 .mnav:not(.open){display:none}
 /* WhatsApp в футере: светлый текст */
-footer a[href*="wa.me"]{color:#fff!important}
-footer a[href*="wa.me"] svg{fill:#fff!important}
+
 .nav .btn-primary:hover,.mnav .mnav-cta:hover{background:#fff!important;background-image:none!important;color:#EE5A12!important;box-shadow:0 10px 26px rgba(238,90,18,.28);transform:translateY(-1px)}
 .langdd-btn{background:rgba(255,255,255,.22)!important;backdrop-filter:blur(16px) saturate(1.4)!important;-webkit-backdrop-filter:blur(16px) saturate(1.4)!important;border:1px solid rgba(255,255,255,.38)!important;border-radius:999px!important;color:inherit!important}
 .nav.scrolled .langdd-btn{background:rgba(251,247,240,.5)!important;border-color:rgba(28,24,21,.15)!important}
@@ -436,6 +435,27 @@ body:has(.mnav.open) .nav button svg,body:has(.mnav.open) .nav .burger{color:#1C
 [data-instance-id],[data-instance-id] *{filter:none!important}
 [data-instance-id][data-anim]{opacity:1!important;transform:none!important}
 }
+</style><style id="nv-mobile-fix4">
+@media(max-width:760px){
+  /* навбар: всё помещается, CTA не обрезается */
+  .nav{padding-left:14px!important;padding-right:14px!important;gap:8px!important;flex-wrap:nowrap!important}
+  .nav>*{flex:none}
+  .nav .btn-primary{padding:9px 14px!important;font-size:12.5px!important;white-space:nowrap}
+  .langdd-btn{padding:8px 12px!important;font-size:12.5px!important}
+  .nav .logo-text,.nav b,.nav strong{font-size:17px!important}
+  /* карусель: стрелки не перекрывают кнопки */
+  .apt-prev,.apt-next{display:none!important}
+  /* лого площадок: крупнее */
+  .plat-strip img{height:52px!important}
+  .plat-strip{gap:34px!important}
+  /* островок −5%: не на первом экране */
+  #nvReg{bottom:14px;max-width:none}
+}
+/* контраст hero-текста */
+header#top h1,header#top p{text-shadow:0 2px 22px rgba(20,17,14,.55),0 1px 4px rgba(20,17,14,.4)}
+header#top .kick,header#top [class*=kick]{text-shadow:0 1px 12px rgba(20,17,14,.6)}
+/* плавный скролл без прыжков: убрать снап-рывки */
+.apt-track{scroll-snap-type:x proximity!important}
 </style></head>
 <body>
 <nav class="nav scrolled" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:transparent">
@@ -485,8 +505,8 @@ body:has(.mnav.open) .nav button svg,body:has(.mnav.open) .nav .burger{color:#1C
       <div>
         <div style="font:700 11px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(28,24,21,.5);margin-bottom:16px">Связаться</div>
         <!-- TODO: замените дополнительный номер +998 33 320 05 28 на реальный -->
-        <a class="foot-phone" href="tel:+998900115074"><i class="ph-fill ph-phone"></i><span>+998 90 011 50 74<small>Основной номер</small></span></a>
-        <a class="foot-phone" href="tel:+998333200528" style="margin-bottom:18px"><i class="ph-fill ph-phone-plus"></i><span>+998 33 320 05 28<small>Дополнительный номер</small></span></a>
+        <a class="foot-phone" href="tel:+998900115074"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span>+998 90 011 50 74<small>Основной номер</small></span></a>
+        <a class="foot-phone" href="tel:+998333200528" style="margin-bottom:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span>+998 33 320 05 28<small>Дополнительный номер</small></span></a>
         <a href="https://wa.me/998900115074" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:var(--accent,#A67C4E);color:#1C1815;padding:14px 24px;border-radius:999px;font:700 15px Manrope,sans-serif"><i class="ph-fill ph-whatsapp-logo" style="font-size:20px"></i>Написать в WhatsApp</a>
         <div style="display:flex;gap:18px;margin-top:20px">
           <a href="https://instagram.com/novahome_uzb" style="text-decoration:none;display:flex;align-items:center;gap:8px;font:500 13px Manrope,sans-serif;color:rgba(28,24,21,.72)"><i class="ph-fill ph-instagram-logo" style="font-size:18px;color:var(--accent,#A67C4E)"></i>@novahome_uzb</a>
@@ -804,7 +824,7 @@ function showProfile(p){reg.hidden=true;prof.style.display='flex';prof.querySele
 var p=get();
 if(p){showProfile(p);return}
 if(sessionStorage.getItem('nvRegClosed'))return;
-setTimeout(function(){reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})},6000);
+var shown=false;function tryShow(){if(shown)return;if(scrollY<innerHeight*.6)return;shown=true;setTimeout(function(){reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})},4000);removeEventListener('scroll',tryShow)}addEventListener('scroll',tryShow,{passive:true});setTimeout(function(){if(!shown){shown=true;reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})}},30000);
 reg.querySelector('.x').addEventListener('click',function(){reg.classList.remove('on');sessionStorage.setItem('nvRegClosed','1');setTimeout(function(){reg.hidden=true},600)});
 reg.querySelector('.go').addEventListener('click',function(){
 var name=document.getElementById('nvRegName').value.trim(),email=document.getElementById('nvRegEmail').value.trim();
