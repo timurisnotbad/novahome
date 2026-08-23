@@ -481,6 +481,13 @@ img{max-width:100%}
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "y6vo2ajscx");
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2B9MVPVZ9" id="nv-ga4"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z2B9MVPVZ9');
+</script>
 </head>
 <body>
 <nav class="nav scrolled" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:transparent">
@@ -904,5 +911,14 @@ matchMedia('(hover:hover)').matches&&document.querySelectorAll('.nav .btn-primar
   b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)/r.width,y=(e.clientY-r.top-r.height/2)/r.height;b.style.transform='translate('+(x*6)+'px,'+(y*5)+'px)'});
   b.addEventListener('mouseleave',function(){b.style.transform='';b.style.transition='transform .6s cubic-bezier(.19,1,.22,1)';setTimeout(function(){b.style.transition=''},600)});
 });
-})();</script></body>
+})();</script><script id="nv-ga4-events">document.addEventListener('click',function(e){
+var a=e.target.closest&&e.target.closest('a,button');if(!a||typeof gtag!=='function')return;
+var href=a.getAttribute('href')||'';
+if(href.indexOf('tel:')===0){gtag('event','phone_click',{event_category:'contact',event_label:href.slice(4)});return}
+if(href.indexOf('wa.me')>-1){gtag('event','whatsapp_click',{event_category:'contact'});return}
+if(href.indexOf('t.me')>-1){gtag('event','telegram_click',{event_category:'contact'});return}
+var t=(a.textContent||'').trim().toLowerCase();
+if(t.indexOf('заброниров')>-1||href.indexOf('#book')>-1){gtag('event','book_click',{event_category:'booking',event_label:location.pathname})}
+if(a.classList.contains('go')&&a.closest('#nvReg')){gtag('event','loyalty_signup',{event_category:'lead'})}
+},true);</script></body>
 </html>

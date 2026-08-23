@@ -1940,6 +1940,13 @@ img{max-width:100%}
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "y6vo2ajscx");
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2B9MVPVZ9" id="nv-ga4"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z2B9MVPVZ9');
+</script>
 </head>
 <body>
 
@@ -3175,4 +3182,13 @@ localStorage.setItem(K,JSON.stringify(prof2));
 reg.querySelector('.form').innerHTML='<div class="done">Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.</div>';
 setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600);
 });
-})();</script><script id="nv-underline-js">document.querySelectorAll('.nav .navlink').forEach(function(a){a.addEventListener('mouseenter',function(e){var r=a.getBoundingClientRect();a.style.setProperty('--ux',Math.round(e.clientX-r.left)+'px')})});</script></body></html>
+})();</script><script id="nv-underline-js">document.querySelectorAll('.nav .navlink').forEach(function(a){a.addEventListener('mouseenter',function(e){var r=a.getBoundingClientRect();a.style.setProperty('--ux',Math.round(e.clientX-r.left)+'px')})});</script><script id="nv-ga4-events">document.addEventListener('click',function(e){
+var a=e.target.closest&&e.target.closest('a,button');if(!a||typeof gtag!=='function')return;
+var href=a.getAttribute('href')||'';
+if(href.indexOf('tel:')===0){gtag('event','phone_click',{event_category:'contact',event_label:href.slice(4)});return}
+if(href.indexOf('wa.me')>-1){gtag('event','whatsapp_click',{event_category:'contact'});return}
+if(href.indexOf('t.me')>-1){gtag('event','telegram_click',{event_category:'contact'});return}
+var t=(a.textContent||'').trim().toLowerCase();
+if(t.indexOf('заброниров')>-1||href.indexOf('#book')>-1){gtag('event','book_click',{event_category:'booking',event_label:location.pathname})}
+if(a.classList.contains('go')&&a.closest('#nvReg')){gtag('event','loyalty_signup',{event_category:'lead'})}
+},true);</script></body></html>
