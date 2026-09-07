@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<script>window.NV_API_URL='https://script.google.com/macros/s/AKfycbz9u6SU4pRJXkhf8ZhAJEbammNTDqA0OhzivRrZ3wl_il0Hu6HgMmYSn6ZI9BV2yyAE/exec'</script><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://homereserve.ru https://*.homereserve.ru https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://unpkg.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://script.google.com https://*.googleusercontent.com https://homereserve.ru https://*.homereserve.ru https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://*.analytics.google.com; frame-src https://homereserve.ru https://*.homereserve.ru https://www.google.com https://maps.google.com https://*.google.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -891,7 +892,7 @@ gtag('config', 'G-Z2B9MVPVZ9');
   <p>Создайте профиль гостя — получите −5% на проживание и быстрые повторные брони.</p>
   <div class="form">
     <input id="nvRegName" type="text" placeholder="ФИО" autocomplete="name">
-    <input id="nvRegEmail" type="email" placeholder="Email" autocomplete="email">
+    <input id="nvRegEmail" type="email" placeholder="Email" autocomplete="email" maxlength="120"><input id="nvRegHp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <button class="go" type="button">Зарегистрироваться −5%</button>
   </div>
 </div>
@@ -907,13 +908,24 @@ if(sessionStorage.getItem('nvRegClosed'))return;
 var shown=false;function tryShow(){if(shown)return;if(scrollY<innerHeight*.6)return;shown=true;setTimeout(function(){reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})},4000);removeEventListener('scroll',tryShow)}addEventListener('scroll',tryShow,{passive:true});setTimeout(function(){if(!shown){shown=true;reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})}},30000);
 reg.querySelector('.x').addEventListener('click',function(){reg.classList.remove('on');sessionStorage.setItem('nvRegClosed','1');setTimeout(function(){reg.hidden=true},600)});
 reg.querySelector('.go').addEventListener('click',function(){
-var name=document.getElementById('nvRegName').value.trim(),email=document.getElementById('nvRegEmail').value.trim();
-if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){reg.querySelector('.go').textContent='Заполните ФИО и email';setTimeout(function(){reg.querySelector('.go').textContent='Зарегистрироваться −5%'},1800);return}
+var go=reg.querySelector('.go'),LBL='Зарегистрироваться −5%';
+if(go.disabled)return;
+var name=document.getElementById('nvRegName').value.trim().replace(/[<>"'\\]/g,'').slice(0,80),email=document.getElementById('nvRegEmail').value.trim().slice(0,120);
+function msg(t,ms){go.textContent=t;setTimeout(function(){go.textContent=LBL;go.disabled=false},ms||2200)}
+if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg('Заполните ФИО и email',1800);return}
+go.disabled=true;go.textContent='Сохраняем…';
 var prof2={name:name,email:email,discount:5,created:Date.now()};
-try{fetch('/api/register.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email})}).catch(function(){})}catch(e){}
-localStorage.setItem(K,JSON.stringify(prof2));
-reg.querySelector('.form').innerHTML='<div class="done">Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.</div>';
-setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600);
+function done(){localStorage.setItem(K,JSON.stringify(prof2));var f=reg.querySelector('.form'),d=document.createElement('div');d.className='done';d.textContent='Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.';f.replaceChildren(d);
+setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600)}
+var ctl=('AbortController' in window)?new AbortController():null;var tm=ctl&&setTimeout(function(){ctl.abort()},8000);
+fetch((window.NV_API_URL||'/api/register.php'),(function(){var u=window.NV_API_URL||'/api/register.php',gs=u.indexOf('script.google.com')>-1;var fp='';try{fp=(localStorage.getItem('nv_fp')||(function(){var s=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('nv_fp',s);return s})())}catch(e){}var body=JSON.stringify({name:name,email:email,fp:fp,hp:(document.getElementById('nvRegHp')||{}).value||''});return gs?{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,redirect:'follow',signal:ctl&&ctl.signal}:{method:'POST',headers:{'Content-Type':'application/json','X-Requested-With':'novahome'},body:body,signal:ctl&&ctl.signal}})())
+.then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,status:r.status,j:j}})})
+.then(function(res){clearTimeout(tm);
+  if(res.j&&res.j.error){msg(res.j.error,3200);return}
+  if(res.ok){if(res.j&&res.j.discount)prof2.discount=res.j.discount;done();return}
+  if(res.status===429){msg('Слишком часто. Попробуйте через 10 минут',3200);return}
+  msg((res.j&&res.j.error)||'Не удалось сохранить. Напишите нам в Telegram',3200)})
+.catch(function(){clearTimeout(tm);msg('Нет связи с сервером. Напишите нам в Telegram',3200)});
 });
 })();</script><script id="nv-underline-js">document.querySelectorAll('.nav .navlink').forEach(function(a){a.addEventListener('mouseenter',function(e){var r=a.getBoundingClientRect();a.style.setProperty('--ux',Math.round(e.clientX-r.left)+'px')})});</script><script id="nv-wow-js">(function(){
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
@@ -927,10 +939,10 @@ document.querySelectorAll('.pg-h1').forEach(function(h){
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-anim],.stagger').forEach(function(el){io.observe(el)});
 /* лёгкий параллакс героя страницы */
-var hoverOK=matchMedia('(hover:hover)').matches;var ph=document.querySelector('.pg-hero,.pg-head');
+var hoverOK=matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)').matches;var ph=document.querySelector('.pg-hero,.pg-head');
 if(hoverOK&&ph){addEventListener('scroll',function(){var y=Math.min(scrollY,600);ph.style.transform='translateY('+(y*.12)+'px)';ph.style.opacity=1-y/900},{passive:true})}
 /* магнитные кнопки */
-matchMedia('(hover:hover)').matches&&document.querySelectorAll('.nav .btn-primary,.ct-quick a,.q1,.q2,.q3').forEach(function(b){
+hoverOK&&document.querySelectorAll('.nav .btn-primary,.ct-quick a,.q1,.q2,.q3').forEach(function(b){
   b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)/r.width,y=(e.clientY-r.top-r.height/2)/r.height;b.style.transform='translate('+(x*6)+'px,'+(y*5)+'px)'});
   b.addEventListener('mouseleave',function(){b.style.transform='';b.style.transition='transform .6s cubic-bezier(.19,1,.22,1)';setTimeout(function(){b.style.transition=''},600)});
 });
@@ -943,5 +955,22 @@ if(href.indexOf('t.me')>-1){gtag('event','telegram_click',{event_category:'conta
 var t=(a.textContent||'').trim().toLowerCase();
 if(t.indexOf('заброниров')>-1||href.indexOf('#book')>-1){gtag('event','book_click',{event_category:'booking',event_label:location.pathname})}
 if(a.classList.contains('go')&&a.closest('#nvReg')){gtag('event','loyalty_signup',{event_category:'lead'})}
-},true);</script></body>
+},true);</script><script id="nv-hr-fallback">(function(){
+function arm(sel,ms){var el=document.querySelector(sel);if(!el)return;setTimeout(function(){
+  if(el.children.length>0||el.querySelector('iframe'))return;
+  if(el.querySelector('.nv-hr-fb'))return;
+  var d=document.createElement('div');d.className='nv-hr-fb';d.setAttribute('role','status');
+  d.style.cssText='display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:22px 20px;border:1px dashed rgba(166,124,78,.45);border-radius:14px;background:#FBF7F0;font:500 15px/1.55 Manrope,sans-serif;color:#5e5547';
+  var p=document.createElement('div');p.textContent='Виджет бронирования не загрузился. Напишите нам — подберём даты и подтвердим бронь за пару минут.';
+  var row=document.createElement('div');row.style.cssText='display:flex;gap:10px;flex-wrap:wrap';
+  function btn(href,txt,primary){var a=document.createElement('a');a.href=href;a.textContent=txt;if(href.indexOf('http')===0){a.target='_blank';a.rel='noopener'}
+    a.style.cssText='text-decoration:none;font:700 14px Manrope,sans-serif;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;'+(primary?'background:linear-gradient(135deg,#FF9D2E,#FB7A1E 52%,#EE5A12);color:#fff':'border:1.5px solid #A67C4E;color:#A67C4E');return a}
+  row.appendChild(btn('https://t.me/novahome_uzb','Написать в Telegram',true));row.appendChild(btn('tel:+998900115074','Позвонить',false));
+  d.appendChild(p);d.appendChild(row);el.appendChild(d);
+  if('MutationObserver' in window){var obs=new MutationObserver(function(){for(var i=0;i<el.children.length;i++){if(!el.children[i].classList.contains('nv-hr-fb')){d.remove();obs.disconnect();return}}});obs.observe(el,{childList:true})}
+  try{typeof gtag==='function'&&gtag('event','widget_fail',{event_category:'booking',event_label:sel})}catch(e){}
+},ms)}
+if(location.protocol!=='file:'){arm('[data-instance-id="search"]',9000);arm('[data-instance-id="list"]',14000)}
+})();</script>
+</body>
 </html>

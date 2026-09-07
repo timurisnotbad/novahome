@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
+<script>window.NV_API_URL='https://script.google.com/macros/s/AKfycbz9u6SU4pRJXkhf8ZhAJEbammNTDqA0OhzivRrZ3wl_il0Hu6HgMmYSn6ZI9BV2yyAE/exec'</script><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://homereserve.ru https://*.homereserve.ru https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://unpkg.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://script.google.com https://*.googleusercontent.com https://homereserve.ru https://*.homereserve.ru https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://*.analytics.google.com; frame-src https://homereserve.ru https://*.homereserve.ru https://www.google.com https://maps.google.com https://*.google.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>// GENERATED from dc-runtime/src/*.ts — do not edit. Rebuild with `cd dc-runtime && bun run build`.
 "use strict";
@@ -1795,7 +1796,8 @@ footer{padding-left:24px;padding-right:24px}
   header#top{padding:110px 22px 70px!important;min-height:100svh!important}
   header#top h1{font-size:clamp(34px,10vw,44px)!important}
   header#top p{font-size:16px!important}
-  header#top .btn{width:100%;justify-content:center;padding:15px 20px!important}
+  header#top .hero-cta{flex-direction:column;align-items:stretch;gap:12px!important;width:100%;max-width:340px;margin-left:auto;margin-right:auto}
+  header#top .hero-cta .btn{width:100%;box-sizing:border-box;justify-content:center;padding:16px 20px!important;font-size:15px!important;min-height:52px;white-space:nowrap}
   section,footer{padding-left:22px!important;padding-right:22px!important}
   section[id="book"]{margin:-30px 16px 0!important;padding:18px!important}
   .fac-grid,.reviews-grid,.ct-grid,.blog-grid{grid-template-columns:1fr!important;gap:16px!important}
@@ -2106,6 +2108,56 @@ gtag('config', 'G-Z2B9MVPVZ9');
 </style>
 
 
+<style id="nv-lux">
+/* ===== ЛЮКС-ПОЛИШ ===== */
+::selection{background:#A67C4E;color:#FBF7F0}
+h1,h2{text-wrap:balance}
+/* крупнее заголовки секций (десктоп) */
+@media(min-width:901px){
+  section h2[style]{font-size:clamp(42px,4.4vw,54px)!important;letter-spacing:-.03em!important}
+  #about{padding-top:128px!important}
+  #facilities{padding-top:118px!important}
+  #reviews{padding-top:118px!important;padding-bottom:118px!important}
+}
+/* зерно плёнки — дорогая фактура */
+@media(min-width:761px){
+  body::before{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.042;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px}
+}
+/* стеклянный виджет бронирования */
+#book{background:rgba(255,253,249,.82)!important;backdrop-filter:blur(22px) saturate(1.35);-webkit-backdrop-filter:blur(22px) saturate(1.35);border:1px solid rgba(255,255,255,.66);box-shadow:0 30px 80px rgba(40,30,20,.14)!important}
+/* бейджи этажей — стекло вместо оранжевого градиента */
+#facilities div[style*="FF9D2E"]{background:rgba(20,17,14,.44)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(244,236,221,.3);color:#F4ECDD!important;box-shadow:none!important;letter-spacing:.16em!important;text-transform:uppercase;font-weight:700!important}
+/* карточки инфраструктуры — подъём + кен-бёрнс */
+.fac-grid>div{transition:transform .9s cubic-bezier(.19,1,.22,1),box-shadow .9s cubic-bezier(.19,1,.22,1)}
+.fac-grid>div:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(40,30,20,.2)!important}
+.fac-grid>div img{transition:transform 1.5s cubic-bezier(.19,1,.22,1)}
+.fac-grid>div:hover img{transform:scale(1.055)}
+/* удобства — тихие карточки на хэйрлайнах */
+.amen-grid>div{background:rgba(255,255,255,.55)!important;border:1px solid #EFE6D6;box-shadow:none!important;transition:transform .7s cubic-bezier(.19,1,.22,1),border-color .4s,box-shadow .7s cubic-bezier(.19,1,.22,1)}
+.amen-grid>div:hover{transform:translateY(-5px);border-color:#E3D5BC;box-shadow:0 18px 40px rgba(40,30,20,.09)!important}
+/* отзывы — хэйрлайн + мягкий подъём, крупные цифры */
+.reviews-grid>div{border:1px solid #F1E8D8;box-shadow:0 6px 22px rgba(40,30,20,.05)!important;transition:transform .7s cubic-bezier(.19,1,.22,1),box-shadow .7s cubic-bezier(.19,1,.22,1)}
+.reviews-grid>div:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(40,30,20,.12)!important}
+#reviews div[style*="font-weight:800;font-size:40px"]{font-size:54px!important;letter-spacing:-.03em}
+/* строки услуг — тёплый ховер, стрелка уезжает */
+.svc-row{transition:background .5s}
+.svc-row:hover{background:linear-gradient(90deg,rgba(166,124,78,.06),transparent 70%)}
+.svc-link i{transition:transform .45s cubic-bezier(.19,1,.22,1)}
+.svc-row:hover .svc-link i{transform:translateX(5px)}
+/* цены — дисплейные цифры */
+.apt-pr b{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:1.45em;letter-spacing:-.02em}
+/* кнопки — световой кант сверху */
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+/* футер — живые ссылки и логотипы оплат */
+footer a[href$=".html"]{transition:color .3s}
+footer a[href$=".html"]:hover{color:#A67C4E!important}
+.pay-row img{transition:transform .4s cubic-bezier(.19,1,.22,1)}
+.pay-row img:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){
+  .fac-grid>div,.fac-grid>div img,.amen-grid>div,.reviews-grid>div,.svc-link i,.pay-row img{transition:none!important;transform:none!important}
+}
+</style>
+
 <div style="font-family:Manrope,sans-serif;background:#FBF7F0;color:#1C1815;overflow-x:hidden">
 
   <!-- ===== NAV ===== -->
@@ -2144,8 +2196,8 @@ gtag('config', 'G-Z2B9MVPVZ9');
 
   <!-- ===== HERO ===== -->
   <header id="top" style="position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:120px 48px 90px;overflow:hidden;background:#14110E">
-    <img src="assets/inline-0.jpg" alt="" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-    <video class="hero-video" autoplay muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1.6s cubic-bezier(.19,1,.22,1)"></video>
+    <img src="assets/inline-0.jpg" alt="Гостиная апартамента Nova Home с панорамным видом на Tashkent City" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <video class="hero-video" autoplay muted playsinline preload="auto" poster="assets/inline-0.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1.6s cubic-bezier(.19,1,.22,1)"></video>
     <script>(function(){var v=document.querySelector('.hero-video');if(!v)return;var mob=matchMedia('(max-width:760px)').matches;
 if(mob){var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
  if(!c)return; if(c.saveData)return;
@@ -2159,12 +2211,12 @@ v.addEventListener('ended',function(){v.style.opacity='0';setTimeout(function(){
       <div data-anim="" style="font:600 12px Manrope,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(244,236,221,.75)">Nest One · Ташкент</div>
       <h1 data-anim="" style="margin:26px 0 0;transition-delay:.62s;font-family:'Schibsted Grotesk',sans-serif;font-weight:900;font-size:clamp(44px,6.4vw,84px);line-height:1.02;letter-spacing:-.025em;color:#F4ECDD">Апартаменты уровня отеля.<br>С уютом дома.</h1>
       <p data-anim="" style="margin:26px auto 0;transition-delay:.84s;max-width:480px;font:400 18px/1.6 Manrope,sans-serif;color:rgba(244,236,221,.8)">В самом сердце Ташкента. Самостоятельное заселение и поддержка 24/7.</p>
-      <div data-anim="" style="display:flex;gap:14px;margin-top:38px;transition-delay:1.06s;justify-content:center;flex-wrap:wrap">
+      <div class="hero-cta" data-anim="" style="display:flex;gap:14px;margin-top:38px;transition-delay:1.06s;justify-content:center;flex-wrap:wrap">
         <a class="btn btn-primary" href="#book" style="text-decoration:none;font:700 15px Manrope,sans-serif;color:#fff;padding:16px 34px;border-radius:999px;display:inline-flex;align-items:center;gap:9px">Забронировать</a>
         <a class="btn btn-ghost" href="#apartments" style="text-decoration:none;font:700 15px Manrope,sans-serif;color:#F4ECDD;background:rgba(244,236,221,.1);border:1px solid rgba(244,236,221,.32);padding:16px 34px;border-radius:999px;display:inline-flex;align-items:center;gap:9px">Смотреть апартаменты</a>
       </div>
     </div>
-    <div class="hero-cue" style="position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;flex-direction:column;align-items:center;gap:10px;color:rgba(244,236,221,.65)">
+    <div class="hero-cue" style="position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;flex-direction:column;align-items:center;gap:10px;color:rgba(244,236,221,.9);text-shadow:0 1px 8px rgba(0,0,0,.45)">
       <span style="font:600 10px Manrope,sans-serif;letter-spacing:.34em;text-transform:uppercase">Листайте</span>
       <span class="hero-cue-line" style="display:block;width:1px;height:38px;background:linear-gradient(180deg,rgba(244,236,221,.7),transparent)"></span>
     </div>
@@ -2189,7 +2241,7 @@ v.addEventListener('ended',function(){v.style.opacity='0';setTimeout(function(){
       </div>
     </div>
     <div data-anim="right" style="position:relative">
-      <img loading="lazy" decoding="async" src="assets/inline-1.jpg" alt="" style="width:100%;height:420px;object-fit:cover;border-radius:16px;box-shadow:0 20px 46px rgba(40,30,20,.16)">
+      <img loading="lazy" decoding="async" src="assets/inline-1.jpg" alt="Интерьер апартамента Nova Home в Nest One" style="width:100%;height:420px;object-fit:cover;border-radius:16px;box-shadow:0 20px 46px rgba(40,30,20,.16)">
       <div class="float-badge" style="position:absolute;left:-22px;bottom:-22px;background:#FBF7F0;color:#1C1815;border-radius:16px;padding:18px 22px;box-shadow:0 18px 40px rgba(40,30,20,.16)">
         <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:24px;color:var(--accent,#A67C4E)">100%</div>
         <div style="font:500 12px Manrope,sans-serif;color:#6f6555;margin-top:2px;max-width:130px">Довольных гостей<br>рекомендуют нас</div>
@@ -2535,146 +2587,14 @@ class Component extends DCLogic {
     boot();
   }
   setupI18n(){
-    const D = {
-      "О нас":["About","Biz haqimizda","Біз туралы","회사 소개"],
-      "Апартаменты уровня отеля.":["Hotel-grade apartments.","Mehmonxona darajasidagi apartamentlar.","Қонақүй деңгейіндегі апартаменттер.","호텔 수준의 아파트."],
-      "С уютом дома.":["With the comfort of home.","Uy qulayligi bilan.","Үй жайлылығымен.","집 같은 편안함."],
-      "В самом сердце Ташкента. Самостоятельное заселение и поддержка 24/7.":["In the very heart of Tashkent. Self check-in and 24/7 support.","Toshkentning qoq markazida. Mustaqil joylashish va 24/7 qo'llab-quvvatlash.","Ташкенттің дәл жүрегінде. Өз бетінше орналасу және 24/7 қолдау.","타슈켄트 중심부. 셀프 체크인과 24/7 지원."],
-      "Листайте":["Scroll","Varaqlang","Парақтаңыз","스크롤"],
-
-      "Апартаменты":["Apartments","Apartamentlar","Апартаменттер","아파트"],
-      "Удобства":["Amenities","Qulayliklar","Қолайлылықтар","편의시설"],
-      "Расположение":["Location","Joylashuv","Орналасуы","위치"],
-      "Забронировать":["Book now","Bron qilish","Брондау","예약하기"],
-      "Смотреть апартаменты":["View apartments","Apartamentlarni ko'rish","Апартаменттерді көру","아파트 보기"],
-      "Nest One · Ташкент":["Nest One · Tashkent","Nest One · Toshkent","Nest One · Ташкент","Nest One · 타슈켄트"],
-      "Апартаменты уровня":["Hotel-grade","Mehmonxona darajasidagi","Қонақүй деңгейіндегі","호텔 수준의"],
-      "отеля — с уютом дома":["apartments with home comfort","apartamentlar — uy qulayligi bilan","апартаменттер — үй жайлылығымен","아파트 — 집같은 편안함"],
-      "Современные премиальные апартаменты в самом сердце Ташкента. Самостоятельное заселение, поддержка 24/7 и высокий сервис для каждого гостя.":["Modern premium apartments in the heart of Tashkent. Self check-in, 24/7 support and top-tier service for every guest.","Toshkent markazidagi zamonaviy premium apartamentlar. Mustaqil kirish, 24/7 qo'llab-quvvatlash va har bir mehmon uchun yuqori xizmat.","Ташкент орталығындағы заманауи премиум апартаменттер. Өз бетінше кіру, 24/7 қолдау және әр қонаққа жоғары сервис.","타슈켄트 중심부의 현대적인 프리미엄 아파트. 셀프 체크인, 24시간 지원, 최상의 서비스를 제공합니다."],
-      "Поддержка":["Support","Qo'llab-quvvatlash","Қолдау","지원"],
-      "Апартаментов":["Apartments","Apartament","Апартамент","아파트"],
-      "Проверить наличие и забронировать":["Check availability & book","Bandlikni tekshirish va bron qilish","Бос орындарды тексеріп, брондаңыз","예약 가능 여부 확인 및 예약"],
-      "Виджет бронирования загрузится здесь":["Booking widget will load here","Bron qilish vidjeti shu yerda yuklanadi","Брондау виджеті осында жүктеледі","예약 위젯이 여기에 로드됩니다"],
-      "Гостиничный сервис":["Hotel service","Mehmonxona xizmati","Қонақүй сервисі","호텔 서비스"],
-      "с теплом собственного дома":["with the warmth of home","uy iliqligi bilan","өз үйіңіздің жылуымен","내 집 같은 따뜻함"],
-      "NovaHome — сеть современных премиальных апартаментов в престижном комплексе Nest One в центре Ташкента. Мы объединяем комфорт гостиничного сервиса с уютом дома: самостоятельное заселение в любое время, круглосуточная поддержка и внимание к каждой детали.":["NovaHome is a network of modern premium apartments in the prestigious Nest One complex in central Tashkent. We blend hotel-grade service with the comfort of home: self check-in anytime, 24/7 support and attention to every detail.","NovaHome — Toshkent markazidagi nufuzli Nest One majmuasidagi zamonaviy premium apartamentlar tarmog'i. Biz mehmonxona xizmatini uy qulayligi bilan birlashtiramiz: istalgan vaqtda mustaqil kirish, 24/7 qo'llab-quvvatlash va har bir tafsilotga e'tibor.","NovaHome — Ташкент орталығындағы беделді Nest One кешеніндегі заманауи премиум апартаменттер желісі. Біз қонақүй сервисінің жайлылығын үй жылуымен біріктіреміз: кез келген уақытта өзіндік кіру, тәулік бойы қолдау және әр детальға назар.","NovaHome는 타슈켄트 중심 Nest One 단지의 프리미엄 아파트 네트워크입니다. 언제든 셀프 체크인, 24시간 지원, 세심한 배려로 호텔 서비스와 집의 편안함을 결합했습니다."],
-      "Поддержка 24/7":["24/7 support","24/7 qo'llab-quvvatlash","Қолдау 24/7","24시간 지원"],
-      "Довольных гостей":["Of happy guests","Mamnun mehmonlar","Риза қонақтар","만족한 고객의"],
-      "рекомендуют нас":["recommend us","bizni tavsiya qiladi","бізді ұсынады","추천율"],
-      "Выберите свой формат":["Choose your format","O'z formatingizni tanlang","Өз форматыңызды таңдаңыз","원하는 형태를 선택하세요"],
-      "Студии и апартаменты с одной и двумя спальнями — с балконами, террасами и видами на город.":["Studios and one- and two-bedroom apartments — with balconies, terraces and city views.","Studiyalar va bir va ikki yotoqxonali apartamentlar — balkon, terrasa va shahar manzarasi bilan.","Балконы, террасасы және қала көрінісі бар студиялар мен бір-екі жатын бөлмелі апартаменттер.","발코니, 테라스, 시티뷰를 갖춘 스튜디오 및 침실 1~2개 아파트."],
-      "Хит":["Top","Hit","Хит","인기"],
-      "1 спальня · 42 m² · вид на город":["1 bedroom · 42 m² · city view","1 yotoqxona · 42 m² · shahar manzarasi","1 жатын бөлме · 42 m² · қала көрінісі","침실 1 · 42 m² · 시티뷰"],
-      "Студия · 42 m² · Hilton и фонтан":["Studio · 42 m² · Hilton & fountain","Studiya · 42 m² · Hilton va favvora","Студия · 42 m² · Hilton және субұрқақ","스튜디오 · 42 m² · 힐튼 & 분수 전망"],
-      "2 спальни · 65 m² · частная терраса":["2 bedrooms · 65 m² · private terrace","2 yotoqxona · 65 m² · shaxsiy terrasa","2 жатын бөлме · 65 m² · жеке терраса","침실 2 · 65 m² · 전용 테라스"],
-      "до 3":["up to 3","3 kishigacha","3-ке дейін","최대 3명"],
-      "до 4":["up to 4","4 kishigacha","4-ке дейін","최대 4명"],
-      "2 места":["2 beds","2 joy","2 орын","침대 2"],
-      "1 место":["1 bed","1 joy","1 орын","침대 1"],
-      "3 места":["3 beds","3 joy","3 орын","침대 3"],
-      "Полный каталог апартаментов":["Full apartment catalog","To'liq apartamentlar katalogi","Апартаменттердің толық каталогы","전체 아파트 카탈로그"],
-      "Список квартир загрузится здесь":["Apartment list will load here","Kvartiralar ro'yxati shu yerda yuklanadi","Пәтерлер тізімі осында жүктеледі","아파트 목록이 여기에 로드됩니다"],
-      "Инфраструктура Nest One":["Nest One facilities","Nest One infratuzilmasi","Nest One инфрақұрылымы","Nest One 부대시설"],
-      "Эксклюзивно для гостей":["Exclusive for guests","Mehmonlar uchun eksklyuziv","Тек қонақтар үшін","투숙객 전용"],
-      "Доступ к закрытой инфраструктуре небоскрёба — включён в проживание.":["Access to the tower's private facilities — included in your stay.","Osmono'par binoning yopiq infratuzilmasidan foydalanish — yashash narxiga kiritilgan.","Зәулім ғимараттың жабық инфрақұрылымына кіру — тұру құнына қосылған.","타워의 프라이빗 시설 이용이 숙박에 포함되어 있습니다."],
-      "48 этаж":["48th floor","48-qavat","48-қабат","48층"],
-      "28 этаж":["28th floor","28-qavat","28-қабат","28층"],
-      "2 этаж":["2nd floor","2-qavat","2-қабат","2층"],
-      "Смотровая площадка":["Observation deck","Kuzatuv maydonchasi","Көру алаңы","전망대"],
-      "Самая высокая смотровая площадка в Узбекистане — панорама города 360°.":["The highest observation deck in Uzbekistan — a 360° city panorama.","O'zbekistondagi eng baland kuzatuv maydonchasi — 360° shahar panoramasi.","Өзбекстандағы ең биік көру алаңы — қаланың 360° панорамасы.","우즈베키스탄에서 가장 높은 전망대 — 360° 시티 파노라마."],
-      "Спортзал":["Gym","Sport zali","Спортзал","피트니스"],
-      "Современный фитнес-зал с тренажёрами и видом на Ташкент.":["A modern fitness room with equipment and views over Tashkent.","Toshkent manzarasiga ega zamonaviy fitnes zali.","Ташкент көрінісі бар заманауи фитнес-зал.","타슈켄트 전망의 현대적인 피트니스 센터."],
-      "Приватный парк":["Private park","Shaxsiy park","Жеке саябақ","프라이빗 파크"],
-      "Закрытый зелёный сад — только для жителей комплекса.":["A private green garden — for residents only.","Yopiq yashil bog' — faqat majmua istiqomatchilari uchun.","Жабық жасыл бақ — тек кешен тұрғындары үшін.","단지 입주민 전용 프라이빗 정원."],
-      "Всё для комфортного проживания":["Everything for a comfortable stay","Qulay yashash uchun barchasi","Жайлы тұруға қажеттінің бәрі","편안한 숙박을 위한 모든 것"],
-      "Быстрый Wi-Fi":["Fast Wi-Fi","Tezkor Wi-Fi","Жылдам Wi-Fi","초고속 Wi-Fi"],
-      "Стабильный интернет во всех зонах":["Stable internet in all areas","Barcha hududlarda barqaror internet","Барлық аймақта тұрақты интернет","모든 공간에서 안정적인 인터넷"],
-      "Стиральная машина":["Washing machine","Kir yuvish mashinasi","Кір жуғыш машина","세탁기"],
-      "В каждом апартаменте":["In every apartment","Har bir apartamentda","Әр апартаментте","모든 아파트에 구비"],
-      "Онлайн-кинотеатры и стриминг":["Streaming & online cinema","Onlayn kinoteatr va striming","Онлайн-кинотеатрлар мен стриминг","스트리밍 & 온라인 시네마"],
-      "Кондиционер":["Air conditioning","Konditsioner","Кондиционер","에어컨"],
-      "Климат-контроль круглый год":["Year-round climate control","Yil davomida iqlim nazorati","Жыл бойы климат-бақылау","연중 냉난방 완비"],
-      "Кухня":["Kitchen","Oshxona","Ас үй","주방"],
-      "Полностью оборудована":["Fully equipped","To'liq jihozlangan","Толық жабдықталған","풀옵션"],
-      "Можно с детьми":["Family friendly","Bolalar bilan mumkin","Балалармен болуға болады","아이 동반 가능"],
-      "Семейный формат размещения":["Family-style accommodation","Oilaviy joylashuv","Отбасылық орналасу форматы","가족 친화형 숙소"],
-      "Трансфер":["Transfer","Transfer","Трансфер","픽업 서비스"],
-      "Встреча в аэропорту · $25":["Airport pickup · $25","Aeroportda kutib olish · $25","Әуежайда қарсы алу · $25","공항 픽업 · $25"],
-      "В самом сердце Tashkent City":["In the heart of Tashkent City","Tashkent City markazida","Tashkent City-дің дәл жүрегінде","타슈켄트 시티 중심부"],
-      "Небоскрёб Nest One — новая доминанта города. Главные места Ташкента — в пешей доступности.":["The Nest One tower is the city's new landmark. Tashkent's key spots are within walking distance.","Nest One osmono'par binosi — shaharning yangi ramzi. Toshkentning asosiy joylari piyoda masofada.","Nest One зәулім ғимараты — қаланың жаңа символы. Ташкенттің басты орындары — жаяу жетер жерде.","Nest One 타워는 도시의 새로운 랜드마크입니다. 타슈켄트 명소가 도보 거리에 있습니다."],
-      "ЖК NEST ONE":["NEST ONE complex","NEST ONE majmuasi","NEST ONE ТК","NEST ONE 단지"],
-      "ул. Батыра Закирова 1А/1":["1A/1 Batyra Zakirova St.","Botir Zokirov ko'chasi 1A/1","Батыр Закиров көш., 1А/1","바티르 자키로프 거리 1A/1"],
-      "Центр города":["City center","Shahar markazi","Қала орталығы","시내 중심"],
-      "Что рядом":["What's nearby","Atrofda nima bor","Жақын жерде не бар","주변 명소"],
-      "Всё самое интересное — в паре минут от дома":["Everything worth seeing — minutes from home","Eng qiziqarli joylar — uydan bir necha daqiqa","Ең қызықтының бәрі — үйден бірнеше минутта","볼거리가 모두 도보 몇 분 거리"],
-      "Крупнейший торговый центр":["The largest shopping mall","Eng yirik savdo markazi","Ең ірі сауда орталығы","최대 쇼핑몰"],
-      "Парк развлечений и шоу":["Amusement park & shows","Ko'ngilochar park va shoular","Ойын-сауық паркі мен шоу","놀이공원 & 쇼"],
-      "Зелёный парк и фонтаны":["Green park & fountains","Yashil park va favvoralar","Жасыл саябақ пен субұрқақтар","공원과 분수"],
-      "Метро":["Metro","Metro","Метро","지하철"],
-      "Весь город за 20 минут":["The whole city in 20 minutes","Butun shahar 20 daqiqada","Бүкіл қала 20 минутта","20분이면 시내 어디든"],
-      "4 мин":["4 min","4 daq","4 мин","4분"],
-      "10 мин":["10 min","10 daq","10 мин","10분"],
-      "5 мин":["5 min","5 daq","5 мин","5분"],
-      "1 мин":["1 min","1 daq","1 мин","1분"],
-      "Построить маршрут":["Get directions","Marshrut tuzish","Бағыт құру","길찾기"],
-      "Премиальные апартаменты в комплексе Nest One. Самостоятельное заселение и поддержка 24/7.":["Premium apartments in the Nest One complex. Self check-in and 24/7 support.","Nest One majmuasidagi premium apartamentlar. Mustaqil kirish va 24/7 qo'llab-quvvatlash.","Nest One кешеніндегі премиум апартаменттер. Өзіндік кіру және 24/7 қолдау.","Nest One 단지의 프리미엄 아파트. 셀프 체크인 & 24시간 지원."],
-      "Связаться":["Contact","Bog'lanish","Байланысу","문의하기"],
-      "Разделы":["Sections","Bo'limlar","Бөлімдер","메뉴"],
-      "© 2026 NovaHome · Nest One, Ташкент":["© 2026 NovaHome · Nest One, Tashkent","© 2026 NovaHome · Nest One, Toshkent","© 2026 NovaHome · Nest One, Ташкент","© 2026 NovaHome · Nest One, 타슈켄트"]
-    ,
-      "Сервис":["Service","Servis","Сервис","서비스"],
-      "Дополнительные услуги":["Extra services","Qo'shimcha xizmatlar","Қосымша қызметтер","부가 서비스"],
-      "Сделаем проживание ещё удобнее — закажите заранее у менеджера.":["We'll make your stay even more comfortable — order in advance from our manager.","Yashashni yanada qulay qilamiz — menejerdan oldindan buyurtma qiling.","Тұруды одан да жайлы етеміз — менеджерден алдын ала тапсырыс беріңіз.","더 편안한 숙박을 위해 매니저에게 미리 신청하세요."],
-      "Узнать подробнее":["Learn more","Batafsil","Толығырақ","자세히 보기"],
-      "Трансфер из аэропорта":["Airport transfer","Aeroportdan transfer","Әуежайдан трансфер","공항 픽업"],
-      "Встретим с табличкой и довезём до дома. Стоимость фиксируем заранее.":["We meet you with a name sign and drive you home. The price is fixed in advance.","Sizni taxtacha bilan kutib olamiz va uygacha olib boramiz. Narx oldindan belgilanadi.","Тақтайшамен қарсы алып, үйге жеткіземіз. Бағасы алдын ала белгіленеді.","네임보드로 맞이하여 숙소까지 모십니다. 요금은 사전 확정."],
-      "Проживание с животными":["Stay with pets","Uy hayvonlari bilan yashash","Үй жануарларымен тұру","반려동물 동반"],
-      "Обсудим условия для вашего питомца — от кошки до собаки.":["We'll agree terms for your pet — from cats to dogs.","Uy hayvoningiz uchun shartlarni kelishib olamiz — mushukdan itgacha.","Мысықтан итке дейін — үй жануарыңызға шарттарды келісеміз.","고양이부터 강아지까지, 조건을 협의해 드립니다."],
-      "Клининг":["Cleaning","Klining","Клининг","클리닝"],
-      "Дополнительная уборка во время проживания — $20 за уборку.":["Extra cleaning during your stay — $20 per cleaning.","Yashash davomida qo'shimcha tozalash — har biri $20.","Тұру кезіндегі қосымша тазалау — әр тазалау $20.","숙박 중 추가 청소 — 회당 $20."],
-      "Услуги переводчика":["Interpreter services","Tarjimon xizmatlari","Аудармашы қызметі","통역 서비스"],
-      "Английский, корейский, русский и узбекский. Заказывайте при бронировании.":["English, Korean, Russian and Uzbek. Order when booking.","Ingliz, koreys, rus va o'zbek tillari. Bron qilishda buyurtma qiling.","Ағылшын, корей, орыс және өзбек тілдері. Брондау кезінде тапсырыс беріңіз.","영어·한국어·러시아어·우즈베크어. 예약 시 신청하세요."],
-      "Доп. койко-место":["Extra bed","Qo'shimcha yotoq joyi","Қосымша төсек-орын","추가 침대"],
-      "Разместим гостя или ребёнка: бельё и полотенца включены.":["We'll accommodate a guest or child: linen and towels included.","Mehmon yoki bolani joylashtiramiz: choyshab va sochiqlar kiritilgan.","Қонақ немесе баланы орналастырамыз: төсек-орын мен сүлгілер қоса беріледі.","게스트나 아이를 위한 침대: 침구·수건 포함."],
-      "Детская кроватка, стульчик, игрушки":["Baby cot, high chair, toys","Bolalar karavoti, stulcha, o'yinchoqlar","Балалар төсегі, орындық, ойыншықтар","아기침대·유아의자·장난감"],
-      "Предоставляем бесплатно — просто предупредите заранее.":["Provided free of charge — just let us know in advance.","Bepul taqdim etamiz — faqat oldindan xabar bering.","Тегін ұсынамыз — тек алдын ала ескертіңіз.","무료 제공 — 미리 알려만 주세요."],
-      "Ранний заезд и поздний выезд":["Early check-in & late check-out","Erta kirish va kech chiqish","Ерте кіру және кеш шығу","얼리 체크인 & 레이트 체크아웃"],
-      "По предварительной договорённости, в зависимости от загрузки.":["By prior arrangement, subject to availability.","Oldindan kelishuv asosida, bandlikka qarab.","Алдын ала келісім бойынша, бос орындарға байланысты.","사전 협의 시 가능(객실 상황에 따라)."],
-      "Нас можно найти на площадках":["Find us on booking platforms","Bizni bron platformalarida topasiz","Бізді брондау платформаларынан табасыз","예약 플랫폼에서 만나보세요"],
-      "Принимаем к оплате":["We accept","To'lovga qabul qilamiz","Төлемге қабылдаймыз","결제 수단"],
-      "Мы на связи":["Stay in touch","Biz aloqadamiz","Біз байланыстамыз","문의 채널"],
-      "Основной номер":["Main number","Asosiy raqam","Негізгі нөмір","대표 번호"],
-      "Дополнительный номер":["Additional number","Qo'shimcha raqam","Қосымша нөмір","추가 번호"]
-    ,
-      "Зарегистрируйтесь — и получите скидку 5%":["Long stay — 5% off","Uzoq muddatli yashash — 5% chegirma","Ұзақ тұру — 5% жеңілдік","장기 숙박 — 5% 할인"],
-      "Оставьте контакты при первом бронировании — попадёте в программу лояльности NovaHome со скидкой 5% на проживание.":["Book 7+ nights and get 5% off your entire stay.","7 kecha va undan ko'p bron qilsangiz — butun yashash uchun 5% chegirma.","7 түн және одан көп брондасаңыз — бүкіл тұруға 5% жеңілдік.","7박 이상 예약 시 전체 숙박 5% 할인."],
-      "Забронировать со скидкой":["Book with discount","Chegirma bilan bron qilish","Жеңілдікпен брондау","할인가로 예약"],
-      "Получить консультацию":["Get a consultation","Maslahat olish","Кеңес алу","상담 받기"]};
-    this._dict = D;
-    const root = this.el || document;
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-    const nodes = [];
-    let n;
-    while ((n = walker.nextNode())){
-      const t = n.nodeValue.trim();
-      if (t && D[t]) nodes.push({ node: n, ru: t });
-    }
-    this._i18nNodes = nodes;
-    const idx = { ru: -1, en: 0, uz: 1, kz: 2, ko: 3 };
-    this._applyLang = (lang) => {
-      const i = idx[lang];
-      nodes.forEach(({ node, ru }) => {
-        node.nodeValue = (i < 0) ? ru : (D[ru][i] || ru);
-      });
-      root.querySelectorAll('.langsw button').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
-      try { localStorage.setItem('novahome_lang', lang); } catch(e){}
+    /* перевод делает независимый скрипт внизу страницы (window.NV_applyLang) — один источник, без дублей обработчиков */
+    const kick = () => {
+      if (typeof window.NV_applyLang !== 'function') return false;
+      let saved = 'ru'; try { saved = localStorage.getItem('novahome_lang') || 'ru'; } catch(e){}
+      if (saved !== 'ru') window.NV_applyLang(saved);
+      return true;
     };
-    root.querySelectorAll('.langsw button').forEach(b => {
-      b.addEventListener('click', () => this._applyLang(b.getAttribute('data-lang')));
-    });
-    let saved = 'ru';
-    try { saved = localStorage.getItem('novahome_lang') || 'ru'; } catch(e){}
-    this._applyLang(saved);
+    if (!kick()) { let n = 0; const t = setInterval(() => { if (kick() || ++n > 40) clearInterval(t); }, 100); }
   }
   componentDidUpdate(){ this.applyAccent(); }
   applyAccent(){
@@ -2903,6 +2823,8 @@ document.addEventListener('DOMContentLoaded', function() {
     #amenities div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
     #top div[style*="display:flex"][style*="gap:38px"]{gap:20px!important;flex-wrap:wrap}
     #top div[style*="margin-top:34px"]{flex-wrap:wrap;gap:12px!important}
+    #top .hero-cue{bottom:22px!important}
+    #top>div[style*="max-width:820px"]{padding:0 4px;width:100%;box-sizing:border-box}
     .plat-strip{gap:14px 22px}
     .plat-logo{font-size:16px}
     footer > div[style*="display:grid"], footer div[style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:28px!important}
@@ -2982,7 +2904,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* ═ Независимое переключение языков: работает даже если рантайм конструктора упал ═ */
 (function(){
-  const D = {
+  const D = window.NV_DICT = {
       "О нас":["About","Biz haqimizda","Біз туралы","회사 소개"],
       "Апартаменты уровня отеля.":["Hotel-grade apartments.","Mehmonxona darajasidagi apartamentlar.","Қонақүй деңгейіндегі апартаменттер.","호텔 수준의 아파트."],
       "С уютом дома.":["With the comfort of home.","Uy qulayligi bilan.","Үй жайлылығымен.","집 같은 편안함."],
@@ -3186,7 +3108,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <p>Создайте профиль гостя — получите −5% на проживание и быстрые повторные брони.</p>
   <div class="form">
     <input id="nvRegName" type="text" placeholder="ФИО" autocomplete="name">
-    <input id="nvRegEmail" type="email" placeholder="Email" autocomplete="email">
+    <input id="nvRegEmail" type="email" placeholder="Email" autocomplete="email" maxlength="120"><input id="nvRegHp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <button class="go" type="button">Зарегистрироваться −5%</button>
   </div>
 </div>
@@ -3198,17 +3120,28 @@ var reg=document.getElementById('nvReg'),prof=document.getElementById('nvProfile
 function showProfile(p){reg.hidden=true;prof.style.display='flex';prof.querySelector('.av').textContent=(p.name||'?').trim().charAt(0).toUpperCase();prof.querySelector('.nm').textContent=(p.name||'').split(' ')[0]+' · скидка 5%'}
 var p=get();
 if(p){showProfile(p);return}
-if(sessionStorage.getItem('nvRegClosed')){setTimeout(function(){sessionStorage.removeItem('nvRegClosed');},45000);return;}
+if(sessionStorage.getItem('nvRegClosed'))return;
 var shown=false;function tryShow(){if(shown)return;if(scrollY<innerHeight*.6)return;shown=true;setTimeout(function(){reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})},4000);removeEventListener('scroll',tryShow)}addEventListener('scroll',tryShow,{passive:true});setTimeout(function(){if(!shown){shown=true;reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})}},30000);
 reg.querySelector('.x').addEventListener('click',function(){reg.classList.remove('on');sessionStorage.setItem('nvRegClosed','1');setTimeout(function(){reg.hidden=true},600)});
 reg.querySelector('.go').addEventListener('click',function(){
-var name=document.getElementById('nvRegName').value.trim(),email=document.getElementById('nvRegEmail').value.trim();
-if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){reg.querySelector('.go').textContent='Заполните ФИО и email';setTimeout(function(){reg.querySelector('.go').textContent='Зарегистрироваться −5%'},1800);return}
+var go=reg.querySelector('.go'),LBL='Зарегистрироваться −5%';
+if(go.disabled)return;
+var name=document.getElementById('nvRegName').value.trim().replace(/[<>"'\\]/g,'').slice(0,80),email=document.getElementById('nvRegEmail').value.trim().slice(0,120);
+function msg(t,ms){go.textContent=t;setTimeout(function(){go.textContent=LBL;go.disabled=false},ms||2200)}
+if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg('Заполните ФИО и email',1800);return}
+go.disabled=true;go.textContent='Сохраняем…';
 var prof2={name:name,email:email,discount:5,created:Date.now()};
-try{fetch('/api/register.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email})}).catch(function(){})}catch(e){}
-localStorage.setItem(K,JSON.stringify(prof2));
-reg.querySelector('.form').innerHTML='<div class="done">Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.</div>';
-setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600);
+function done(){localStorage.setItem(K,JSON.stringify(prof2));var f=reg.querySelector('.form'),d=document.createElement('div');d.className='done';d.textContent='Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.';f.replaceChildren(d);
+setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600)}
+var ctl=('AbortController' in window)?new AbortController():null;var tm=ctl&&setTimeout(function(){ctl.abort()},8000);
+fetch((window.NV_API_URL||'/api/register.php'),(function(){var u=window.NV_API_URL||'/api/register.php',gs=u.indexOf('script.google.com')>-1;var fp='';try{fp=(localStorage.getItem('nv_fp')||(function(){var s=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('nv_fp',s);return s})())}catch(e){}var body=JSON.stringify({name:name,email:email,fp:fp,hp:(document.getElementById('nvRegHp')||{}).value||''});return gs?{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,redirect:'follow',signal:ctl&&ctl.signal}:{method:'POST',headers:{'Content-Type':'application/json','X-Requested-With':'novahome'},body:body,signal:ctl&&ctl.signal}})())
+.then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,status:r.status,j:j}})})
+.then(function(res){clearTimeout(tm);
+  if(res.j&&res.j.error){msg(res.j.error,3200);return}
+  if(res.ok){if(res.j&&res.j.discount)prof2.discount=res.j.discount;done();return}
+  if(res.status===429){msg('Слишком часто. Попробуйте через 10 минут',3200);return}
+  msg((res.j&&res.j.error)||'Не удалось сохранить. Напишите нам в Telegram',3200)})
+.catch(function(){clearTimeout(tm);msg('Нет связи с сервером. Напишите нам в Telegram',3200)});
 });
 })();</script><script id="nv-underline-js">document.querySelectorAll('.nav .navlink').forEach(function(a){a.addEventListener('mouseenter',function(e){var r=a.getBoundingClientRect();a.style.setProperty('--ux',Math.round(e.clientX-r.left)+'px')})});</script><script id="nv-ga4-events">document.addEventListener('click',function(e){
 var a=e.target.closest&&e.target.closest('a,button');if(!a||typeof gtag!=='function')return;
@@ -3219,4 +3152,21 @@ if(href.indexOf('t.me')>-1){gtag('event','telegram_click',{event_category:'conta
 var t=(a.textContent||'').trim().toLowerCase();
 if(t.indexOf('заброниров')>-1||href.indexOf('#book')>-1){gtag('event','book_click',{event_category:'booking',event_label:location.pathname})}
 if(a.classList.contains('go')&&a.closest('#nvReg')){gtag('event','loyalty_signup',{event_category:'lead'})}
-},true);</script></body></html>
+},true);</script><script id="nv-hr-fallback">(function(){
+function arm(sel,ms){var el=document.querySelector(sel);if(!el)return;setTimeout(function(){
+  if(el.children.length>0||el.querySelector('iframe'))return;
+  if(el.querySelector('.nv-hr-fb'))return;
+  var d=document.createElement('div');d.className='nv-hr-fb';d.setAttribute('role','status');
+  d.style.cssText='display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:22px 20px;border:1px dashed rgba(166,124,78,.45);border-radius:14px;background:#FBF7F0;font:500 15px/1.55 Manrope,sans-serif;color:#5e5547';
+  var p=document.createElement('div');p.textContent='Виджет бронирования не загрузился. Напишите нам — подберём даты и подтвердим бронь за пару минут.';
+  var row=document.createElement('div');row.style.cssText='display:flex;gap:10px;flex-wrap:wrap';
+  function btn(href,txt,primary){var a=document.createElement('a');a.href=href;a.textContent=txt;if(href.indexOf('http')===0){a.target='_blank';a.rel='noopener'}
+    a.style.cssText='text-decoration:none;font:700 14px Manrope,sans-serif;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;'+(primary?'background:linear-gradient(135deg,#FF9D2E,#FB7A1E 52%,#EE5A12);color:#fff':'border:1.5px solid #A67C4E;color:#A67C4E');return a}
+  row.appendChild(btn('https://t.me/novahome_uzb','Написать в Telegram',true));row.appendChild(btn('tel:+998900115074','Позвонить',false));
+  d.appendChild(p);d.appendChild(row);el.appendChild(d);
+  if('MutationObserver' in window){var obs=new MutationObserver(function(){for(var i=0;i<el.children.length;i++){if(!el.children[i].classList.contains('nv-hr-fb')){d.remove();obs.disconnect();return}}});obs.observe(el,{childList:true})}
+  try{typeof gtag==='function'&&gtag('event','widget_fail',{event_category:'booking',event_label:sel})}catch(e){}
+},ms)}
+if(location.protocol!=='file:'){arm('[data-instance-id="search"]',9000);arm('[data-instance-id="list"]',14000)}
+})();</script>
+</body></html>
