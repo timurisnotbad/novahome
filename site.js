@@ -1,8 +1,8 @@
 /* Nova Home — site.js */
 (function(){
 var nav=document.getElementById('nav'),bt=document.getElementById('burger'),mn=document.getElementById('mnav');
-if(nav){function onS(){nav.classList.toggle('glass',scrollY>40)}addEventListener('scroll',onS,{passive:true});onS()}
-if(bt&&mn){bt.addEventListener('click',function(){var o=!mn.classList.contains('open');mn.classList.toggle('open',o);bt.setAttribute('aria-expanded',o);bt.firstElementChild.className=o?'ph-bold ph-x':'ph-bold ph-list';if(o){mn.removeAttribute('inert');mn.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else{mn.setAttribute('inert','');mn.setAttribute('aria-hidden','true');document.body.style.overflow=''}});
+if(nav){function onS(){nav.classList.toggle('glass',scrollY>40)}(function(){var q=false;addEventListener('scroll',function(){if(q)return;q=true;requestAnimationFrame(function(){onS();q=false})},{passive:true})})();onS()}
+if(bt&&mn){bt.addEventListener('click',function(){var o=!mn.classList.contains('open');mn.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);bt.setAttribute('aria-expanded',o);bt.firstElementChild.className=o?'ph-bold ph-x':'ph-bold ph-list';if(o){mn.removeAttribute('inert');mn.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else{mn.setAttribute('inert','');mn.setAttribute('aria-hidden','true');document.body.style.overflow=''}});
 mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){bt.click()})});
 addEventListener('keydown',function(e){if(e.key==='Escape'&&mn.classList.contains('open'))bt.click()})}
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,12 +13,9 @@ var cnts=document.querySelectorAll('.cnt');
 if('IntersectionObserver' in window&&!reduce){var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var el=e.target,to=+el.dataset.to,t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/2000);p=1-Math.pow(1-p,3);el.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(f)})(t0)})},{threshold:.4});cnts.forEach(function(c){co.observe(c)})}else{cnts.forEach(function(c){c.textContent=c.dataset.to})}
 var fl=document.querySelectorAll('#facList li'),fi=document.querySelectorAll('#facImg img');function facSel(i){fl.forEach(function(x,k){x.classList.toggle('on',k===i)});fi.forEach(function(x,k){x.classList.toggle('on',k===i)})}fl.forEach(function(li,i){li.addEventListener('mouseenter',function(){facSel(i)});li.addEventListener('click',function(){facSel(i)});li.addEventListener('focus',function(){facSel(i)});li.setAttribute('tabindex','0')});
 var ds=document.querySelectorAll('details.svc');
-var easeOut=function(t){return 1-Math.pow(1-t,3)};var easeIO=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
-function animH(d,a,from,to,dur,onEnd){if(d.__raf)cancelAnimationFrame(d.__raf);var t0=performance.now(),opening=to>from,ez=opening?easeOut:easeIO;a.style.overflow='hidden';a.style.height=from+'px';a.style.opacity=opening?'0':'1';
-var step=function(now){var p=Math.min(1,(now-t0)/dur),e=ez(p);a.style.height=(from+(to-from)*e)+'px';a.style.opacity=opening?String(Math.min(1,e*1.4)):String(Math.max(0,1-e*1.6));if(p<1){d.__raf=requestAnimationFrame(step)}else{d.__raf=0;if(opening){a.style.cssText=''}else{a.style.height='0px';a.style.opacity='0'}onEnd&&onEnd()}};d.__raf=requestAnimationFrame(step)}
-function closeD(d){var a=d.querySelector('.svc-a');if(!a||!d.open||d.__closing)return;d.__closing=true;d.classList.add('closing');animH(d,a,a.getBoundingClientRect().height,0,300,function(){d.open=false;d.__closing=false;d.classList.remove('closing');requestAnimationFrame(function(){a.style.cssText=''})})}
-function openD(d){var a=d.querySelector('.svc-a');if(!a)return;var from=d.open?a.getBoundingClientRect().height:0;d.__closing=false;d.classList.remove('closing');d.open=true;a.style.cssText='';var to=a.scrollHeight;animH(d,a,from,to,340)}
-ds.forEach(function(d){var s=d.querySelector('summary');if(!s)return;s.addEventListener('click',function(e){e.preventDefault();if(reduce){var o=!d.open;ds.forEach(function(x){x.open=false});d.open=o;return}if(d.open&&!d.__closing){closeD(d)}else{ds.forEach(function(x){if(x!==d&&x.open)closeD(x)});openD(d)}})});
+function closeD(d){if(!d.open||d.__t)return;d.classList.add('closing');d.__t=setTimeout(function(){d.open=false;d.classList.remove('closing');d.__t=0},reduce?0:330)}
+function openD(d){if(d.__t){clearTimeout(d.__t);d.__t=0;d.classList.remove('closing')}d.open=true}
+ds.forEach(function(d){var s=d.querySelector('summary');if(!s)return;s.addEventListener('click',function(e){e.preventDefault();if(d.open&&!d.classList.contains('closing')){closeD(d)}else{ds.forEach(function(x){if(x!==d)closeD(x)});openD(d)}})});
 document.addEventListener('click',function(e){var a=e.target.closest('a[href*="#book"],a.btn-primary');if(a&&typeof gtag==='function')gtag('event','book_click',{event_category:'booking',event_label:a.dataset.apt||location.pathname})},true);
 /* mobile: tabbar, chips, search pill */
 var tb=document.querySelector('.tabbar');if(tb){var pg=location.pathname.split('/').pop()||'index.html';tb.querySelectorAll('a').forEach(function(a){var hr=a.getAttribute('href');a.classList.toggle('on',hr===pg)});var tm=document.getElementById('tabMenu');if(tm&&bt)tm.addEventListener('click',function(){bt.click()})}
@@ -41,13 +38,37 @@ var hsArm=function(){clearInterval(hsT);if(!reduce)hsT=setInterval(function(){hs
 hsDots.forEach(function(b,k){b.addEventListener('click',function(){hsGo(k);hsArm()})});var hp=hsEl.querySelector('.hs-p'),hn=hsEl.querySelector('.hs-n');if(hp)hp.addEventListener('click',function(){hsGo(hsI-1);hsArm()});if(hn)hn.addEventListener('click',function(){hsGo(hsI+1);hsArm()});
 hsEl.addEventListener('mouseenter',function(){clearInterval(hsT)});hsEl.addEventListener('mouseleave',hsArm);var tx0=0;hsEl.addEventListener('touchstart',function(e){tx0=e.touches[0].clientX},{passive:true});hsEl.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-tx0;if(Math.abs(d)>40){hsGo(hsI+(d<0?1:-1));hsArm()}});
 document.addEventListener('visibilitychange',function(){document.hidden?clearInterval(hsT):hsArm()});hsArm()}
+document.querySelectorAll('a[data-scroll]').forEach(function(a){a.addEventListener('click',function(e){var t=document.getElementById(a.dataset.scroll);if(!t)return;e.preventDefault();scrollTo({top:t.getBoundingClientRect().top+scrollY-84,behavior:'smooth'})})});
+var rm=document.getElementById('revMore');if(rm)rm.addEventListener('click',function(){document.querySelector('.rev-grid').classList.add('all')});
+/* catalog filters */
+(function(){var grid=document.getElementById('catGrid');if(!grid)return;var cards=Array.prototype.slice.call(grid.querySelectorAll('.cat-card')),cnt=document.getElementById('catCount'),empty=document.getElementById('catEmpty'),sort=document.getElementById('catSort');
+var meta=cards.map(function(c){var m=c.querySelector('.m').textContent.match(/(\d+) m/);return{el:c,type:c.dataset.type,guests:+c.dataset.guests,complex:c.dataset.complex,price:+c.dataset.price,floor:+c.dataset.floor,extra:c.dataset.extra.split(','),area:m?+m[1]:0,idx:cards.indexOf(c)}});
+cards.forEach(function(c){c.classList.add('in');c.style.removeProperty('--d')});
+var st={type:'all',guests:'all',extra:'all',complex:'all'},raf;
+function apply(){cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){var v=sort.value,n=0,arr=meta.slice();
+if(v==='price')arr.sort(function(a,b){return a.price-b.price});else if(v==='price-d')arr.sort(function(a,b){return b.price-a.price});else if(v==='floor-d')arr.sort(function(a,b){return b.floor-a.floor});else if(v==='area-d')arr.sort(function(a,b){return b.area-a.area});else arr.sort(function(a,b){return a.idx-b.idx});
+var frag=document.createDocumentFragment();arr.forEach(function(m){var ok=(st.complex==='all'||m.complex===st.complex)&&(st.type==='all'||m.type===st.type)&&(st.guests==='all'||m.guests>=+st.guests)&&(st.extra==='all'||(st.extra==='high'?m.floor>=10:m.extra.indexOf(st.extra)>-1));m.el.classList.toggle('hide',!ok);if(ok)n++;frag.appendChild(m.el)});grid.appendChild(frag);
+cnt.textContent='Показано '+n+' из '+cards.length;empty.hidden=n>0})}
+document.querySelectorAll('.cat-group[data-key]').forEach(function(g){var k=g.dataset.key;g.addEventListener('click',function(e){var b=e.target.closest('.fchip');if(!b)return;g.querySelectorAll('.fchip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');st[k]=b.dataset.v;apply()})});
+sort.addEventListener('change',apply);
+document.getElementById('catReset').addEventListener('click',function(){st={type:'all',guests:'all',extra:'all',complex:'all'};document.querySelectorAll('.cat-group[data-key] .fchip').forEach(function(b){b.classList.toggle('on',b.dataset.v==='all')});sort.value='rec';apply()});
+var q=new URLSearchParams(location.search).get('type');if(q){var b=document.querySelector('.cat-group[data-key="type"] .fchip[data-v="'+q+'"]');if(b)b.click()}
+})();
 /* lang dropdown */
 var ld=document.getElementById('langdd');if(ld){var lb=ld.querySelector('.langdd-btn'),lp=ld.querySelector('.langdd-panel');lb.addEventListener('click',function(e){e.stopPropagation();var o=!lp.classList.contains('open');lp.classList.toggle('open',o);lb.setAttribute('aria-expanded',o)});document.addEventListener('click',function(){lp.classList.remove('open');lb.setAttribute('aria-expanded','false')});
 lp.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){document.getElementById('langddCur').textContent=b.dataset.short})})}
 /* floating chat + mobile cta */
 var fc=document.querySelector('.fchat'),mc=document.querySelector('.mcta');
 function scrollUI(){var y=scrollY;if(fc)fc.classList.toggle('on',y>420);if(mc){var hide=document.querySelector('.pc, #book');var h2=hide&&hide.getBoundingClientRect();var over=h2&&h2.top<innerHeight&&h2.bottom>0;mc.classList.toggle('on',y>360&&!over)}}
-addEventListener('scroll',scrollUI,{passive:true});scrollUI();
+(function(){var q=false;addEventListener('scroll',function(){if(q)return;q=true;requestAnimationFrame(function(){scrollUI();q=false})},{passive:true})})();scrollUI();
+/* mobile gallery: counter + tools wrap */
+(function(){if(!matchMedia('(max-width:760px)').matches)return;var hero=document.querySelector('.page-hero.ap-hero'),g=document.querySelector('.ap-hero .gal');if(!hero||!g)return;
+var wrap=document.createElement('div');wrap.className='gal-wrap';wrap.style.position='relative';g.parentNode.insertBefore(wrap,g);wrap.appendChild(g);
+var n=g.querySelectorAll('.g').length,c=document.createElement('div');c.className='gal-cnt';c.textContent='1 / '+n;wrap.appendChild(c);
+var tools=document.createElement('div');tools.className='ap-tools';tools.innerHTML='<a href="index.html#apts" aria-label="Назад"><i class="ph-bold ph-arrow-left"></i></a><button type="button" id="shareM" aria-label="Поделиться"><i class="ph-bold ph-share-network"></i></button>';wrap.appendChild(tools);
+var sh=document.getElementById('share');tools.querySelector('#shareM').addEventListener('click',function(){if(sh)sh.click()});
+g.addEventListener('scroll',function(){var i=Math.round(g.scrollLeft/g.clientWidth)+1;c.textContent=Math.min(i,n)+' / '+n},{passive:true});
+var card=document.createElement('div');card.className='ap-card';var cr=hero.querySelector('.crumbs'),hd=hero.querySelector('.ap-head');card.appendChild(cr);card.appendChild(hd);hero.querySelector('.wrap').appendChild(card)})();
 /* lightbox */
 var gal=document.querySelector('.gal');if(gal){var imgs=[].slice.call(gal.querySelectorAll('img'));if(imgs.length){var lbx=document.createElement('div');lbx.className='lb';lbx.innerHTML='<button class="x" aria-label="Закрыть"><i class="ph-bold ph-x"></i></button><button class="p" aria-label="Назад"><i class="ph-bold ph-caret-left"></i></button><img alt=""><button class="n" aria-label="Вперёд"><i class="ph-bold ph-caret-right"></i></button><div class="c"></div>';document.body.appendChild(lbx);var cur=0,im=lbx.querySelector('img');function show(i){cur=(i+imgs.length)%imgs.length;im.src=imgs[cur].src;im.alt=imgs[cur].alt;lbx.querySelector('.c').textContent=(cur+1)+' / '+imgs.length}function open(i){show(i);lbx.classList.add('on');document.body.style.overflow='hidden'}function close(){lbx.classList.remove('on');document.body.style.overflow=''}
 imgs.forEach(function(x,i){x.closest('.g').classList.add('slot-real');x.closest('.g').addEventListener('click',function(){open(i)})});var all=gal.querySelector('.all');if(all)all.addEventListener('click',function(e){e.stopPropagation();open(0)});
@@ -67,7 +88,6 @@ var hp=document.querySelector('.hero-bg');if(hp&&!reduce&&matchMedia('(pointer:f
 })();
 /* apartment page: calendar + calc + share */
 (function(){
-
 (function(){
 var pc=document.querySelector('.pc');if(!pc)return;var P=+pc.dataset.price,APT=pc.dataset.apt,ci=document.getElementById('ci'),co=document.getElementById('co'),bk=document.getElementById('bookBtn');
 var dr=document.getElementById('dr'),btn=document.getElementById('drBtn'),cg=document.getElementById('cg'),cm=document.getElementById('cm'),cfT=document.getElementById('cfT');
@@ -113,7 +133,6 @@ bk.href='booking.html?checkin='+ci.value+'&checkout='+co.value+'&apt='+APT+'#boo
 labels();calc();
 var sh=document.getElementById('share');if(sh)sh.addEventListener('click',function(){var d={title:document.title,url:location.href};if(navigator.share){navigator.share(d).catch(function(){})}else{navigator.clipboard&&navigator.clipboard.writeText(location.href);var t=sh.innerHTML;sh.innerHTML='<i class="ph-bold ph-check"></i>Ссылка скопирована';setTimeout(function(){sh.innerHTML=t},1800)}});
 })();
-
 })();
 /* registration */
 (function(){
@@ -124,9 +143,9 @@ var reg=document.getElementById('nvReg'),prof=document.getElementById('nvProfile
 function showProfile(p){reg.hidden=true;prof.style.display='flex';prof.querySelector('.av').textContent=(p.name||'?').trim().charAt(0).toUpperCase();prof.querySelector('.nm').textContent=(p.name||'').split(' ')[0]+' · скидка 5%'}
 var p=get();
 if(p){showProfile(p);return}
-function openReg(){reg.hidden=false;requestAnimationFrame(function(){reg.classList.add('on')})}
+function openReg(){reg.hidden=false;document.body.classList.add('reg-open');requestAnimationFrame(function(){reg.classList.add('on')})}
 document.querySelectorAll('.nv-reg-open').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openReg()})});
-reg.querySelector('.x').addEventListener('click',function(){reg.classList.remove('on');sessionStorage.setItem('nvRegClosed','1');setTimeout(function(){reg.hidden=true},600)});
+reg.querySelector('.x').addEventListener('click',function(){reg.classList.remove('on');document.body.classList.remove('reg-open');sessionStorage.setItem('nvRegClosed','1');setTimeout(function(){reg.hidden=true},600)});
 reg.querySelector('.go').addEventListener('click',function(){
 var go=reg.querySelector('.go'),LBL='Зарегистрироваться −5%';
 if(go.disabled)return;
@@ -136,15 +155,15 @@ if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg('Заполните Ф�
 go.disabled=true;go.textContent='Сохраняем…';
 var prof2={name:name,email:email,discount:5,created:Date.now()};
 function done(){localStorage.setItem(K,JSON.stringify(prof2));var f=reg.querySelector('.form'),d=document.createElement('div');d.className='done';d.textContent='Готово, '+name.split(' ')[0]+'! Скидка 5% закреплена за профилем '+email+'.';f.replaceChildren(d);
-setTimeout(function(){reg.classList.remove('on');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600)}
+setTimeout(function(){reg.classList.remove('on');document.body.classList.remove('reg-open');setTimeout(function(){reg.hidden=true;showProfile(prof2)},600)},2600)}
 var ctl=('AbortController' in window)?new AbortController():null;var tm=ctl&&setTimeout(function(){ctl.abort()},8000);
 fetch((window.NV_API_URL||'/api/register.php'),(function(){var u=window.NV_API_URL||'/api/register.php',gs=u.indexOf('script.google.com')>-1;var fp='';try{fp=(localStorage.getItem('nv_fp')||(function(){var s=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('nv_fp',s);return s})())}catch(e){}var body=JSON.stringify({name:name,email:email,fp:fp,hp:(document.getElementById('nvRegHp')||{}).value||''});return gs?{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,redirect:'follow',signal:ctl&&ctl.signal}:{method:'POST',headers:{'Content-Type':'application/json','X-Requested-With':'novahome'},body:body,signal:ctl&&ctl.signal}})())
 .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,status:r.status,j:j}})})
 .then(function(res){clearTimeout(tm);
-  if(res.j&&res.j.error){msg(res.j.error,3200);return}
-  if(res.ok){if(res.j&&res.j.discount)prof2.discount=res.j.discount;done();return}
-  if(res.status===429){msg('Слишком часто. Попробуйте через 10 минут',3200);return}
-  msg((res.j&&res.j.error)||'Не удалось сохранить. Напишите нам в Telegram',3200)})
+if(res.j&&res.j.error){msg(res.j.error,3200);return}
+if(res.ok){if(res.j&&res.j.discount)prof2.discount=res.j.discount;done();return}
+if(res.status===429){msg('Слишком часто. Попробуйте через 10 минут',3200);return}
+msg((res.j&&res.j.error)||'Не удалось сохранить. Напишите нам в Telegram',3200)})
 .catch(function(){clearTimeout(tm);msg('Нет связи с сервером. Напишите нам в Telegram',3200)});
 });
 })();
@@ -152,18 +171,18 @@ fetch((window.NV_API_URL||'/api/register.php'),(function(){var u=window.NV_API_U
 /* HomeReserve fallback */
 (function(){
 function arm(sel,ms){var el=document.querySelector(sel);if(!el)return;setTimeout(function(){
-  if(el.querySelector('iframe')||Array.prototype.some.call(el.children,function(c){return !c.classList.contains('nv-hr-fb')&&c.getBoundingClientRect().height>24}))return;
-  if(el.querySelector('.nv-hr-fb'))return;
-  var d=document.createElement('div');d.className='nv-hr-fb';d.setAttribute('role','status');
-  d.style.cssText='display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:22px 20px;border:1px dashed rgba(166,124,78,.45);border-radius:14px;background:#FBF7F0;font:500 15px/1.55 Manrope,sans-serif;color:#5e5547';
-  var p=document.createElement('div');p.textContent='Календарь загружается дольше обычного. Напишите нам — подберём даты и подтвердим бронь за пару минут.';
-  var row=document.createElement('div');row.style.cssText='display:flex;gap:10px;flex-wrap:wrap';
-  function btn(href,txt,primary){var a=document.createElement('a');a.href=href;a.textContent=txt;if(href.indexOf('http')===0){a.target='_blank';a.rel='noopener'}
-    a.style.cssText='text-decoration:none;font:700 14px Manrope,sans-serif;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;'+(primary?'background:linear-gradient(135deg,#FF9D2E,#FB7A1E 52%,#EE5A12);color:#fff':'border:1.5px solid #A67C4E;color:#A67C4E');return a}
-  row.appendChild(btn('https://t.me/novahome_uzb','Написать в Telegram',true));row.appendChild(btn('tel:+998900115074','Позвонить',false));
-  d.appendChild(p);d.appendChild(row);el.appendChild(d);
-  if('MutationObserver' in window){var obs=new MutationObserver(function(){for(var i=0;i<el.children.length;i++){if(!el.children[i].classList.contains('nv-hr-fb')){d.remove();obs.disconnect();return}}});obs.observe(el,{childList:true})}
-  try{typeof gtag==='function'&&gtag('event','widget_fail',{event_category:'booking',event_label:sel})}catch(e){}
+if(el.querySelector('iframe')||Array.prototype.some.call(el.children,function(c){return !c.classList.contains('nv-hr-fb')&&c.getBoundingClientRect().height>24}))return;
+if(el.querySelector('.nv-hr-fb'))return;
+var d=document.createElement('div');d.className='nv-hr-fb';d.setAttribute('role','status');
+d.style.cssText='display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:22px 20px;border:1px dashed rgba(166,124,78,.45);border-radius:14px;background:#FBF7F0;font:500 15px/1.55 Manrope,sans-serif;color:#5e5547';
+var p=document.createElement('div');p.textContent='Календарь загружается дольше обычного. Напишите нам — подберём даты и подтвердим бронь за пару минут.';
+var row=document.createElement('div');row.style.cssText='display:flex;gap:10px;flex-wrap:wrap';
+function btn(href,txt,primary){var a=document.createElement('a');a.href=href;a.textContent=txt;if(href.indexOf('http')===0){a.target='_blank';a.rel='noopener'}
+a.style.cssText='text-decoration:none;font:700 14px Manrope,sans-serif;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;'+(primary?'background:linear-gradient(135deg,#FF9D2E,#FB7A1E 52%,#EE5A12);color:#fff':'border:1.5px solid #A67C4E;color:#A67C4E');return a}
+row.appendChild(btn('https://t.me/novahome_uzb','Написать в Telegram',true));row.appendChild(btn('tel:+998900115074','Позвонить',false));
+d.appendChild(p);d.appendChild(row);el.appendChild(d);
+if('MutationObserver' in window){var obs=new MutationObserver(function(){for(var i=0;i<el.children.length;i++){if(!el.children[i].classList.contains('nv-hr-fb')){d.remove();obs.disconnect();return}}});obs.observe(el,{childList:true})}
+try{typeof gtag==='function'&&gtag('event','widget_fail',{event_category:'booking',event_label:sel})}catch(e){}
 },ms)}
 if(location.protocol!=='file:'){arm('[data-instance-id="search"]',7000);arm('[data-instance-id="list"]',9000)}
 })();
