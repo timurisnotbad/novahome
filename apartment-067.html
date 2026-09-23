@@ -90,7 +90,7 @@ gtag('config', 'G-Z2B9MVPVZ9');
     </div></div>
     <div class="reveal"><div class="eyebrow">Удобства</div><ul class="amen" style="margin-top:12px"><li><i class="ph-bold ph-wifi-high"></i>Быстрый Wi-Fi</li><li><i class="ph-bold ph-television"></i>Smart TV</li><li><i class="ph-bold ph-cooking-pot"></i>Кухня с техникой</li><li><i class="ph-bold ph-washing-machine"></i>Стиральная машина</li><li><i class="ph-bold ph-thermometer"></i>Климат-контроль</li><li><i class="ph-bold ph-hair-dryer"></i>Фен и косметика</li><li><i class="ph-bold ph-towel"></i>Отельное бельё</li><li><i class="ph-bold ph-key"></i>Self check-in</li><li><i class="ph-bold ph-shield-check"></i>Охрана 24/7</li><li><i class="ph-bold ph-barbell"></i>Спортзал · 28 этаж</li><li><i class="ph-bold ph-binoculars"></i>Смотровая · 48 этаж</li><li><i class="ph-bold ph-tree-evergreen"></i>Приватный парк</li></ul></div>
     <div class="reveal"><div class="eyebrow">Что рядом</div><div class="near2" style="margin-top:16px"><div><i class="ph-fill ph-train"></i><b>1 мин</b><span>Метро</span></div><div><i class="ph-fill ph-shopping-bag"></i><b>4 мин</b><span>Tashkent City Mall</span></div><div><i class="ph-fill ph-tree"></i><b>5 мин</b><span>Tashkent City Park</span></div><div><i class="ph-fill ph-airplane"></i><b>25 мин</b><span>Аэропорт TAS</span></div></div></div>
-    <div class="reveal"><div class="eyebrow">Расположение</div><div class="map" style="margin-top:16px"><div class="pin"><b>ЖК Nest One · Tashkent City</b><span>ул. Батыра Закирова 1А/1, Ташкент</span></div><a class="btn btn-dark" href="https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9" target="_blank" rel="noopener">Открыть карту</a></div></div>
+    <div class="reveal"><div class="eyebrow">Расположение</div><div class="map" style="margin-top:16px"><div class="pin"><div><b>ЖК Nest One · Tashkent City</b><span>ул. Батыра Закирова 1А/1, Ташкент</span></div><a class="btn btn-dark" href="https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9" target="_blank" rel="noopener">Открыть карту</a></div></div></div>
     <div class="reveal"><div class="eyebrow">Отзывы гостей</div><div class="rev3" style="margin-top:16px"><figure class="review" style="padding:24px"><div class="stars">★★★★★</div><blockquote style="font-size:16px">«Фото на сайте оказались точь-в-точь как в жизни — даже лучше. Никаких сюрпризов: чисто, свежо, всё новое.»</blockquote><figcaption><span class="ava">ЕК</span><div><b>Елена К.</b><small>Москва</small></div></figcaption></figure><figure class="review" style="padding:24px"><div class="stars">★★★★★</div><blockquote style="font-size:16px">«Прилетели в 2 ночи, переживали за заселение. Код пришёл заранее, зашли сами за минуту.»</blockquote><figcaption><span class="ava">AR</span><div><b>Alisher R.</b><small>Дубай</small></div></figcaption></figure><figure class="review" style="padding:24px"><div class="stars">★★★★★</div><blockquote style="font-size:16px">«Тихо и безопасно — охрана, консьерж, закрытая территория. А вид вечером — невероятный.»</blockquote><figcaption><span class="ava">НФ</span><div><b>Наталья Ф.</b><small>Ташкент</small></div></figcaption></figure></div></div>
   </div>
   <aside>
@@ -102,6 +102,7 @@ gtag('config', 'G-Z2B9MVPVZ9');
           <div class="cal-h"><button type="button" class="cal-nav" id="cp" aria-label="Предыдущий месяц"><i class="ph-bold ph-caret-left"></i></button><b id="cm"></b><button type="button" class="cal-nav" id="cn" aria-label="Следующий месяц"><i class="ph-bold ph-caret-right"></i></button></div>
           <div class="cal-w"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
           <div class="cal-g" id="cg"></div>
+          <div class="cal-legend" hidden><span><i>12</i>Занято</span></div>
           <div class="cal-f"><span id="cfT">Выберите дату заезда</span><button type="button" id="cClr">Сбросить</button></div>
         </div>
         <input type="hidden" id="ci"><input type="hidden" id="co">
@@ -113,7 +114,7 @@ gtag('config', 'G-Z2B9MVPVZ9');
         <div class="tot"><span>Итого</span><b id="tot">$105</b></div>
       </div>
       <a class="btn btn-primary" id="bookBtn" href="booking.html#book">Забронировать</a>
-      <div class="hint"><i class="ph-fill ph-check-circle"></i>Бесплатная отмена за 48 часов · без депозита</div>
+      <div class="hint"><i class="ph-fill ph-check-circle"></i>Бесплатная отмена за 48 часов</div>
       <div class="fine">Бронируя, вы соглашаетесь с <a href="docs/oferta.pdf" target="_blank" rel="noopener">договором оферты</a></div>
     </div>
   </aside>
@@ -150,4 +151,6 @@ gtag('config', 'G-Z2B9MVPVZ9');
 </div>
 <script src="i18n.js" defer></script>
 <script src="site.js" defer></script>
+<script>window.NV_BOOK_API=''; /* вставьте адрес Worker, напр. https://novahome-booking.ВАШ-АККАУНТ.workers.dev */</script>
+<script src="book.js" defer></script>
 </body></html>

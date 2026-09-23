@@ -85,7 +85,14 @@ gtag('config', 'G-Z2B9MVPVZ9');
 <section id="book"><div class="wrap"><div class="book-panel reveal">
   <div class="head"><div><div class="eyebrow">Шаг 1</div><h2>Проверить наличие</h2></div><div class="tiny muted">Подтверждение приходит моментально</div></div>
   <div class="terms"><span><i class="ph-fill ph-check-circle"></i>Бесплатная отмена за 48 часов до заезда</span><span><i class="ph-fill ph-check-circle"></i>Любые методы оплаты</span></div>
-  <!-- WIDGET: BOOKING_DATE_PICKER (HomeReserve search) -->
+  <form class="nvs" id="nvSearch" novalidate>
+    <label>Заезд<input type="date" name="from" required></label>
+    <label>Выезд<input type="date" name="to" required></label>
+    <label>Гости<select name="guests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
+    <button class="btn btn-primary" type="submit"><i class="ph-bold ph-magnifying-glass"></i>Найти</button>
+    <div class="nvs-msg" aria-live="polite"></div>
+  </form>
+  <!-- fallback: HomeReserve search (hidden when own booking is on) -->
   <div class="widget-box"><div id="hr-widget" data-instance-id="search" style="min-height:96px"></div></div>
   <div class="book-foot"><span>Профиль гостя даёт −5% на проживание. <a href="#" class="nv-reg-open">Зарегистрироваться</a></span><span>Бронируя, вы соглашаетесь с <a href="docs/oferta.pdf" target="_blank" rel="noopener">договором оферты</a></span></div>
 </div></div></section>
@@ -103,7 +110,7 @@ gtag('config', 'G-Z2B9MVPVZ9');
   <div class="cat-empty" id="catEmpty" hidden><b>Под эти фильтры ничего не нашлось</b><span>Сбросьте фильтры или напишите нам — подберём вручную.</span><button type="button" class="btn btn-ghost" id="catReset">Сбросить фильтры</button></div>
 </div></section>
 <section id="catalog"><div class="wrap"><div class="two">
-  <div class="reveal"><div class="eyebrow" style="margin-bottom:14px">Каталог и календарь занятости</div>
+  <div class="reveal list-box-wrap"><div class="eyebrow" style="margin-bottom:14px">Каталог и календарь занятости</div>
     <!-- WIDGET: APARTMENT_SELECTOR (HomeReserve list) -->
     <div class="list-box"><div id="hr-widget" data-instance-id="list" style="min-height:320px"></div></div>
   </div>
@@ -159,4 +166,6 @@ gtag('config', 'G-Z2B9MVPVZ9');
 </div>
 <script src="i18n.js" defer></script>
 <script src="site.js" defer></script>
+<script>window.NV_BOOK_API=''; /* вставьте адрес Worker, напр. https://novahome-booking.ВАШ-АККАУНТ.workers.dev */</script>
+<script src="book.js" defer></script>
 </body></html>
