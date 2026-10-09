@@ -12,7 +12,7 @@ try{var pg=(location.pathname.split('/').pop()||'index.html').replace(/\.html$/,
   if(!sessionStorage.getItem('nvHit:'+pg)){sessionStorage.setItem('nvHit:'+pg,'1');if(navigator.sendBeacon)navigator.sendBeacon(API+'/hit',new Blob([payload],{type:'application/json'}));else fetch(API+'/hit',{method:'POST',body:payload,headers:{'Content-Type':'application/json'},keepalive:true})}}catch(e){}
 
 load().then(function(D){
-  var A=D.apts||{},ids=Object.keys(A);
+  var A=D.apts||{},ids=Object.keys(A);window.NV_APTS=A;document.dispatchEvent(new Event('nv:apts'));
   /* ---- apartment page ---- */
   var pc=document.getElementById('pc');
   var qid=new URLSearchParams(location.search).get('id');
@@ -90,4 +90,12 @@ load().then(function(D){
     var cnt=wrap.querySelector('.eyebrow');if(cnt&&/стат/i.test(cnt.textContent)){var n=wrap.querySelectorAll('.post').length;cnt.textContent=n+' '+(n%10===1&&n%100!==11?'статья':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'статьи':'статей')}
   }
 }).catch(function(){});
+/* mini map per apartment (lazy) */
+(function(){var fr=document.getElementById('aptMapFrame');if(!fr)return;var id=(location.pathname.match(/apartment-(\d+)/)||[])[1]||new URLSearchParams(location.search).get('id');
+fetch('apartments.json',{cache:'force-cache'}).then(function(r){return r.json()}).then(function(j){var L=Array.isArray(j)?j:(j.apts||Object.values(j));var a=L.filter(function(x){return String(x.id)===String(id)})[0]||{};var cm=window.NV_APTS&&window.NV_APTS[id];if(cm){['lat','lng','address','mapUrl','complex'].forEach(function(k){if(cm[k])a[k]=cm[k]})}if(!a.lat)return;
+ var t=document.getElementById('aptMapTitle'),ad=document.getElementById('aptMapAddr'),lk=document.getElementById('aptMapLink');if(t)t.textContent='ЖК '+a.complex;if(ad)ad.textContent=a.address||'';
+ var q=a.lat+','+a.lng;if(lk)lk.href=a.mapUrl||('https://www.google.com/maps?q='+q);
+ function put(){if(fr.firstChild)return;if(window.NV_APT_MAP){window.NV_APT_MAP(fr,a).catch(function(){});return}var i=document.createElement('iframe');i.title='Карта: '+(a.address||a.complex);i.loading='lazy';i.referrerPolicy='no-referrer-when-downgrade';i.src='https://maps.google.com/maps?q='+encodeURIComponent(q)+'&z=15&output=embed';fr.appendChild(i)}
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();put()}},{rootMargin:'400px 0px'});io.observe(fr)}else put()}).catch(function(){})})();
+
 })();

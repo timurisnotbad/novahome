@@ -18,7 +18,11 @@
   "hasPhoto": true,
   "featured": true,
   "url": "apartment-459.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "207",
@@ -39,7 +43,11 @@
   "hasPhoto": true,
   "featured": true,
   "url": "apartment-207.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "067",
@@ -62,7 +70,11 @@
   "hasPhoto": true,
   "featured": true,
   "url": "apartment-067.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "066",
@@ -85,7 +97,11 @@
   "hasPhoto": true,
   "featured": true,
   "url": "apartment-066.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "210",
@@ -106,7 +122,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-210.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "278",
@@ -127,7 +147,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-278.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "120",
@@ -148,7 +172,11 @@
   "hasPhoto": true,
   "featured": false,
   "url": "apartment-120.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "008",
@@ -171,7 +199,11 @@
   "hasPhoto": true,
   "featured": false,
   "url": "apartment-008.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "007",
@@ -194,7 +226,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-007.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "005",
@@ -218,7 +254,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-005.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "003",
@@ -242,7 +282,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-003.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "031",
@@ -265,7 +309,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-031.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "051",
@@ -286,7 +334,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-051.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "071",
@@ -307,7 +359,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-071.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "073",
@@ -328,7 +384,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-073.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "078",
@@ -349,7 +409,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-078.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "103",
@@ -370,7 +434,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-103.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "156",
@@ -394,7 +462,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-156.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3165,
+  "lng": 69.2495,
+  "address": "ЖК Boulevard, Ташкент — точный адрес уточняется",
+  "mapUrl": ""
  },
  {
   "id": "110",
@@ -415,7 +487,11 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-110.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  },
  {
   "id": "135",
@@ -436,6 +512,10 @@
   "hasPhoto": false,
   "featured": false,
   "url": "apartment-135.html",
-  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview"
+  "book": "https://homereserve.ru/GdXT9Gz4Mv/list-preview",
+  "lat": 41.3166,
+  "lng": 69.2486,
+  "address": "ул. Батыра Закирова 1А/1, Tashkent City",
+  "mapUrl": "https://maps.app.goo.gl/8EQp1XbU2ssbb5jP9"
  }
 ]

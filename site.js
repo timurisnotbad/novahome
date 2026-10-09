@@ -64,7 +64,7 @@ cnt.textContent='Показано '+n+' из '+cards.length;empty.hidden=n>0})}
 document.querySelectorAll('.cat-group[data-key]').forEach(function(g){var k=g.dataset.key;g.addEventListener('click',function(e){var b=e.target.closest('.fchip');if(!b)return;g.querySelectorAll('.fchip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');st[k]=b.dataset.v;apply()})});
 sort.addEventListener('change',apply);
 document.getElementById('catReset').addEventListener('click',function(){st={type:'all',guests:'all',extra:'all',complex:'all'};document.querySelectorAll('.cat-group[data-key] .fchip').forEach(function(b){b.classList.toggle('on',b.dataset.v==='all')});sort.value='rec';apply()});
-var q=new URLSearchParams(location.search).get('type');if(q){var b=document.querySelector('.cat-group[data-key="type"] .fchip[data-v="'+q+'"]');if(b)b.click()}
+var qs=new URLSearchParams(location.search);['type','complex','guests','extra'].forEach(function(k){var q=qs.get(k);if(!q)return;var b=document.querySelector('.cat-group[data-key="'+k+'"] .fchip[data-v="'+q.replace(/"/g,'')+'"]');if(b)b.click()});
 })();
 addEventListener('hashchange',function(){if(mn&&mn.classList.contains('open')&&bt)bt.click()});
 /* hidden admin entry: 5 fast taps on the footer copyright */
@@ -137,12 +137,12 @@ document.getElementById('cal').addEventListener('click',function(ev){ev.stopProp
 document.addEventListener('click',function(ev){if(!dr.contains(ev.target))close()});
 addEventListener('keydown',function(ev){if(ev.key==='Escape')close()});
 function calc(){if(!s||!e)return;var n=Math.round((e-s)/864e5);ci.value=iso(s);co.value=iso(e);
-var PP=window.NV_PRICE||P;var dp=n>=30?20:n>=7?10:0;var sub=PP*n,dis=Math.round(sub*dp/100);var drl=document.querySelector('#disRow span');if(drl)drl.textContent='Скидка от '+(n>=30?'30':'7')+' ночей −'+dp+'%';var promo=window.NV_PROMO&&window.NV_PROMO.percent&&(!window.NV_PROMO.apts.length||window.NV_PROMO.apts.indexOf(APT)>-1)?Math.round(sub*window.NV_PROMO.percent/100):0;dis+=promo;var gd=window.NV_GUEST&&window.NV_GUEST.token?(window.NV_GUEST.discount||5):0;var gdis=Math.round(sub*gd/100);var grow=document.getElementById('gdRow');if(!grow&&gd){grow=document.createElement('div');grow.className='dis';grow.id='gdRow';grow.innerHTML='<span>Профиль гостя −'+gd+'%</span><b id="gdis"></b>';var dr=document.getElementById('disRow');dr.parentNode.insertBefore(grow,dr.nextSibling)}if(grow){grow.hidden=!gd;var ge=document.getElementById('gdis');if(ge)ge.textContent='−$'+gdis}dis+=gdis;var tot=sub-dis;
+var PP=window.NV_PRICE||P;var dp=n>=30?20:n>=7?10:0;var sub=PP*n,lsd=Math.round(sub*dp/100);var promo=window.NV_PROMO&&window.NV_PROMO.percent&&(!window.NV_PROMO.apts.length||window.NV_PROMO.apts.indexOf(APT)>-1)?Math.round(sub*window.NV_PROMO.percent/100):0;var drl=document.querySelector('#disRow span');if(drl)drl.textContent=dp&&promo?'Скидка от '+(n>=30?'30':'7')+' ночей −'+dp+'% и акция −'+window.NV_PROMO.percent+'%':dp?'Скидка от '+(n>=30?'30':'7')+' ночей −'+dp+'%':promo?'Акция −'+window.NV_PROMO.percent+'%':'';var dis=lsd+promo;var gd=window.NV_GUEST&&window.NV_GUEST.token?(window.NV_GUEST.discount||5):0;var gdis=Math.round(sub*gd/100);var grow=document.getElementById('gdRow');if(!grow&&gd){grow=document.createElement('div');grow.className='dis gd';grow.id='gdRow';grow.innerHTML='<span><i class="ph-fill ph-seal-percent"></i>Ваш профиль −'+gd+'%</span><b id="gdis"></b>';var dr=document.getElementById('disRow');dr.parentNode.insertBefore(grow,dr.nextSibling)}if(grow){grow.hidden=!gd;var ge=document.getElementById('gdis');if(ge)ge.textContent='−$'+gdis}var rowDis=dis;dis+=gdis;var tot=sub-dis;
 document.getElementById('n').textContent=n;document.getElementById('nw').textContent=word(n);document.getElementById('sub').textContent='$'+sub;
-var drw=document.getElementById('disRow');drw.hidden=!dis;document.getElementById('dis').textContent='−$'+dis;
-var el=document.getElementById('tot'),from=+el.textContent.replace(/\D/g,'')||tot,t0=performance.now();(function f(ts){var p=Math.min(1,(ts-t0)/420);p=1-Math.pow(1-p,3);el.textContent='$'+Math.round(from+(tot-from)*p);if(p<1)requestAnimationFrame(f)})(t0);
+var drw=document.getElementById('disRow');drw.hidden=!rowDis;document.getElementById('dis').textContent='−$'+rowDis;
+var el=document.getElementById('tot'),from=+el.textContent.replace(/\D/g,'')||tot,t0=performance.now(),tok=(window.__nvTot=(window.__nvTot||0)+1);if(from===tot){el.textContent='$'+tot}else(function f(ts){if(tok!==window.__nvTot)return;var p=Math.min(1,(ts-t0)/420);p=1-Math.pow(1-p,3);el.textContent='$'+Math.round(from+(tot-from)*p);if(p<1)requestAnimationFrame(f);else el.textContent='$'+tot})(t0);
 bk.href='booking.html?checkin='+ci.value+'&checkout='+co.value+'&apt='+APT+'#book'}
-labels();calc();document.addEventListener('nv:guest',calc);
+labels();calc();document.addEventListener('nv:guest',function(){try{calc()}catch(e){}});
 window.NV_CAL={recalc:function(){calc()},refresh:function(){if(s&&(nb(iso(s))||(e&&rb(s,e)))){var t=new Date(today);for(var g=0;g<400&&nb(iso(t));g++)t.setDate(t.getDate()+1);s=t;e=new Date(t);e.setDate(e.getDate()+1);mode='in';view=new Date(s.getFullYear(),s.getMonth(),1)}labels();render();calc()},set:function(a,b,g){var x=new Date(a+'T00:00:00'),y=new Date(b+'T00:00:00');if(isNaN(x)||isNaN(y)||y<=x||x<today)return;s=x;e=y;var gs=document.getElementById('gs');if(g&&gs&&gs.querySelector('option[value="'+g+'"]'))gs.value=g;labels();render();calc()}};
 var sh=document.getElementById('share');if(sh)sh.addEventListener('click',function(){var d={title:document.title,url:location.href};if(navigator.share){navigator.share(d).catch(function(){})}else{navigator.clipboard&&navigator.clipboard.writeText(location.href);var t=sh.innerHTML;sh.innerHTML='<i class="ph-bold ph-check"></i>Ссылка скопирована';setTimeout(function(){sh.innerHTML=t},1800)}});
 })();
@@ -150,10 +150,15 @@ var sh=document.getElementById('share');if(sh)sh.addEventListener('click',functi
 /* registration + guest profile (server-backed, 5% discount) */
 (function(){
 function nvApplyDisc(){
-var on=!!(window.NV_GUEST&&window.NV_GUEST.token);
+var g=window.NV_GUEST,on=!!(g&&g.token),dp=on?(g.discount||5):0;
 document.documentElement.classList.toggle('nv-guest',on);
 var re=new RegExp('^(\\D*)\\$(\\d+)(.*)$');
-document.querySelectorAll('[data-price]').forEach(function(n){var base=+n.getAttribute('data-price');if(!base)return;var el=n.querySelector('.pr-v')||n.querySelector('b');var tn=el?el.firstChild:n.firstChild;if(!tn||tn.nodeType!==3)return;var out=on?Math.round(base*0.95):base;var m=tn.nodeValue.match(re);if(!m)return;var txt=m[1]+'$'+out+m[3];if(tn.nodeValue!==txt)tn.nodeValue=txt;n.classList.toggle('disc',on)});
+document.querySelectorAll('[data-price]').forEach(function(n){var base=+n.getAttribute('data-price');if(!base)return;var el=n.querySelector('.pr-v')||n.querySelector('b');var host0=el||n,tn=null;for(var ch=host0.firstChild;ch;ch=ch.nextSibling){if(ch.nodeType===3&&/\$\d/.test(ch.nodeValue)){tn=ch;break}}if(!tn)return;var out=on?Math.round(base*(1-dp/100)):base;var m=tn.nodeValue.match(re);if(!m)return;var txt=m[1]+'$'+out+m[3];if(tn.nodeValue!==txt)tn.nodeValue=txt;
+  var host=tn.parentNode,was=host.querySelector(':scope > s.was'),tag=n.querySelector('.disc-tag');
+  if(on){if(!was){was=document.createElement('s');was.className='was';host.insertBefore(was,tn)}was.textContent='$'+base;
+    if(!tag){tag=document.createElement('span');tag.className='disc-tag';tag.innerHTML='<i class="ph-fill ph-seal-percent"></i>−'+dp+'% ваш профиль';n.appendChild(tag)}}
+  else{if(was)was.remove();if(tag)tag.remove()}
+  n.classList.toggle('disc',on)});
 }
 window.nvApplyDisc=nvApplyDisc;document.addEventListener('nv:guest',nvApplyDisc);addEventListener('nv:guest',nvApplyDisc);document.addEventListener('DOMContentLoaded',nvApplyDisc);setTimeout(nvApplyDisc,800);setTimeout(nvApplyDisc,2500);
 var K='nvGuest',API=(window.NV_BOOK_API||'').replace(/\/$/,'');
@@ -161,10 +166,26 @@ function get(){try{return JSON.parse(localStorage.getItem(K)||'null')}catch(e){r
 function set(p){try{localStorage.setItem(K,JSON.stringify(p))}catch(e){}window.NV_GUEST=p;dispatchEvent(new Event('nv:guest'));document.dispatchEvent(new CustomEvent('nv:guest',{detail:p}))}
 var reg=document.getElementById('nvReg'),prof=document.getElementById('nvProfile');if(!reg)return;
 var p=get();window.NV_GUEST=p;dispatchEvent(new Event('nv:guest'));
-function showProfile(p){reg.hidden=true;if(!prof)return;prof.style.display='flex';prof.querySelector('.av').textContent=(p.name||'?').trim().charAt(0).toUpperCase();prof.querySelector('.nm').textContent=(p.name||'').split(' ')[0]+' · −'+(p.discount||5)+'%';prof.title='Выйти из профиля';prof.onclick=function(){if(confirm('Выйти из профиля гостя?')){localStorage.removeItem(K);location.reload()}}}
+function esc2(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function renderAcc(){var na=document.querySelector('.nav-actions');if(!na)return;var old=document.getElementById('nvAccW');if(old)old.remove();var g=get();
+  var w=document.createElement('div');w.id='nvAccW';w.className='nv-accw';
+  if(g&&g.token){var nm=(g.name||'').trim(),first=nm.split(' ')[0]||'Профиль',d=g.discount||5;
+    w.innerHTML='<button type="button" id="nvAcc" class="nv-acc on" aria-haspopup="true" aria-expanded="false"><span class="av">'+esc2(first.charAt(0).toUpperCase())+'</span><span class="nm">'+esc2(first)+'</span><b>−'+d+'%</b></button>'+
+      '<div class="nv-accm" role="menu"><div class="hd"><span class="av lg">'+esc2(first.charAt(0).toUpperCase())+'</span><div><b>'+esc2(nm||first)+'</b>'+(g.email?'<small>'+esc2(g.email)+'</small>':'')+'</div></div>'+
+      '<div class="perk"><i class="ph-fill ph-seal-percent"></i><div><b>Скидка −'+d+'% активна</b><small>Применяется ко всем броням автоматически</small></div></div>'+
+      '<a role="menuitem" href="bron.html"><i class="ph-bold ph-calendar-check"></i>Мои брони</a><a role="menuitem" href="booking.html"><i class="ph-bold ph-magnifying-glass"></i>Найти апартамент</a><button type="button" role="menuitem" class="out"><i class="ph-bold ph-sign-out"></i>Выйти</button></div>';
+    var btn=w.querySelector('#nvAcc'),mn=w.querySelector('.nv-accm');
+    btn.onclick=function(e){e.stopPropagation();var o=w.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+    document.addEventListener('click',function(e){if(!w.contains(e.target)){w.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+    addEventListener('keydown',function(e){if(e.key==='Escape')w.classList.remove('open')});
+    w.querySelector('.out').onclick=function(){localStorage.removeItem(K);window.NV_GUEST=null;dispatchEvent(new Event('nv:guest'));document.dispatchEvent(new CustomEvent('nv:guest'));renderAcc();if(prof)prof.style.display='none'};
+  }else{w.innerHTML='<button type="button" id="nvAcc" class="nv-acc" title="Войти или создать профиль гостя"><i class="ph-bold ph-user-circle"></i><span class="nm">Войти</span><b>−5%</b></button>';w.querySelector('#nvAcc').onclick=function(){if(window.NV_openReg)window.NV_openReg(true)}}
+  na.insertBefore(w,na.firstChild)}
+renderAcc();
+function showProfile(p){reg.hidden=true;renderAcc();nvApplyDisc();if(!prof)return;prof.style.display='none';return;prof.style.display='flex';prof.querySelector('.av').textContent=(p.name||'?').trim().charAt(0).toUpperCase();prof.querySelector('.nm').textContent=(p.name||'').split(' ')[0]+' · −'+(p.discount||5)+'%';prof.title='Выйти из профиля';prof.onclick=function(){if(confirm('Выйти из профиля гостя?')){localStorage.removeItem(K);location.reload()}}}
 if(p&&p.token){showProfile(p);if(API)fetch(API+'/guest/me?t='+p.token).then(function(r){return r.ok?r.json():null}).then(function(d){if(d&&d.ok){set(d);showProfile(d)}else if(d===null){}}).catch(function(){});return}
 var shown=false;
-function openReg(){if(shown||get())return;shown=true;reg.hidden=false;document.body.classList.add('reg-open');requestAnimationFrame(function(){reg.classList.add('on')})}
+function openReg(force){if(get()&&get().token)return;if(shown&&!force)return;shown=true;reg.hidden=false;document.body.classList.add('reg-open');requestAnimationFrame(function(){reg.classList.add('on')})}
 window.NV_openReg=openReg;
 document.querySelectorAll('.nv-reg-open').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();shown=false;openReg()})});
 /* invite: after 20s on page, or when guest scrolls past 60%, once per session */

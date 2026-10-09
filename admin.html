@@ -4,8 +4,9 @@
 <title>Nova Home — панель управления</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
 <link rel="stylesheet" href="admin.css">
-<noscript><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"></noscript>
 </head>
 <body>
 <!-- login -->
@@ -52,7 +53,7 @@
 <div id="upModal" class="modal" hidden>
   <div class="modal-card">
     <div class="modal-h"><button class="icon" id="upX"><i class="ph-bold ph-x"></i></button><div><b>Загрузка фото</b><small id="upSub">Ничего не выбрано</small></div><button class="icon" id="upAdd"><i class="ph-bold ph-plus"></i></button></div>
-    <div class="drop" id="drop"><i class="ph-fill ph-images"></i><b>Перетащите файлы</b><span>или найдите фото на компьютере</span><button class="btn dark" id="upBrowse">Выбрать</button><input type="file" id="upFile" accept="image/*" multiple hidden></div>
+    <div class="drop" id="drop"><i class="ph-fill ph-images"></i><b>Перетащите файлы</b><span>или найдите фото на компьютере</span><button class="btn dark" id="upBrowse">Выбрать</button><input type="file" id="upFile" accept="image/*,.heic,.heif,image/heic,image/heif" multiple hidden></div>
     <div class="up-list" id="upList"></div>
     <div class="modal-f"><span class="muted small">Фото сжимаются в браузере до 1600 px WebP — сайт останется быстрым</span><button class="btn primary" id="upGo" disabled>Загрузить</button></div>
   </div>
@@ -62,5 +63,6 @@
 <nav class="mtabs" id="mtabs" aria-label="Разделы"></nav>
 <div id="toast" class="toast" hidden></div>
 <script>window.NV_BOOK_API='https://novahome-booking.timurzakirov200528.workers.dev';</script>
+<script src="map.js"></script>
 <script src="admin.js"></script>
 </body></html>
