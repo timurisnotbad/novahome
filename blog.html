@@ -12,42 +12,14 @@
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="assets/favicon.png" type="image/png"><link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preload" as="image" href="assets/blog-hazrati-2x1.webp" fetchpriority="high">
-<link rel="preconnect" href="https://homereserve.ru" crossorigin>
-<link rel="dns-prefetch" href="https://homereserve.ru">
-<link rel="modulepreload" href="https://homereserve.ru/widget.js" crossorigin>
-<script type="module" id="nv-hr-loader">(function(){
-var TOKEN='GdXT9Gz4Mv',SRC='https://homereserve.ru/widget.js',done={};
-function init(kind){
-  if(done[kind])return;var el=document.querySelector('#hr-widget[data-instance-id="'+kind+'"]');if(!el)return;
-  var w=window.homereserve;if(!w||typeof w.initWidgetSearch!=='function')return;
-  var fb=el.querySelector('.nv-hr-fb');if(fb)fb.remove();
-  try{kind==='search'?w.initWidgetSearch({token:TOKEN,instance_id:'search'}):w.initWidgetList({token:TOKEN,instance_id:'list'});done[kind]=true}catch(e){}
-}
-function initAll(){init('search');var el=document.querySelector('#hr-widget[data-instance-id="list"]');if(!el)return;var n=0,iv=setInterval(function(){var s=document.querySelector('#hr-widget[data-instance-id="search"]');if((s&&Array.prototype.some.call(s.children,function(c){return !c.classList.contains('nv-hr-fb')}))||++n>40){clearInterval(iv);init('list')}},100)}
-function load(){
-  if(window.homereserve){initAll();return}
-  if(document.getElementById('nv-hr-src'))return;
-  var s=document.createElement('script');s.type='module';s.id='nv-hr-src';s.src=SRC;s.fetchPriority='high';
-  s.onload=function(){var t=0,iv=setInterval(function(){if(window.homereserve&&document.querySelector('#hr-widget[data-instance-id="search"]')){clearInterval(iv);initAll()}else if(++t>400){clearInterval(iv)}},25)};
-  document.head.appendChild(s);
-}
-/* грузим сразу, не дожидаясь остальной страницы */
-load();
-/* если виджет появится в DOM позже — доинициализируем */
-addEventListener('DOMContentLoaded',initAll);
-})();</script>
 <script>window.NV_API_URL='https://script.google.com/macros/s/AKfycbz9u6SU4pRJXkhf8ZhAJEbammNTDqA0OhzivRrZ3wl_il0Hu6HgMmYSn6ZI9BV2yyAE/exec'</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="site.css">
-<script type="text/javascript">(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "y6vo2ajscx");
-</script>
+<noscript><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"></noscript>
+<link rel="stylesheet" href="site.css?v=muuxd7w6">
+<script>addEventListener('load',function(){setTimeout(function(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","y6vo2ajscx")},2500)})</script>
 <script>addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z2B9MVPVZ9';document.head.appendChild(s)},1500)})</script>
 <script>window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -60,10 +32,10 @@ gtag('config', 'G-Z2B9MVPVZ9');
 <a class="skip" href="#main">К содержанию</a>
 <nav class="nav" id="nav" aria-label="Основная навигация"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Nova Home — главная">NOVA<span>HOME</span></a>
-  <div class="links"><a href="index.html">Главная</a><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a></div>
+  <div class="links"><a href="index.html">Главная</a><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="corporate.html">Для компаний</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a></div>
   <div class="nav-actions"><div class="langdd" id="langdd"><button type="button" class="langdd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Язык"><span id="langddCur">RU</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="langdd-panel" role="listbox"><button data-lang="ru" data-short="RU" class="active">Русский</button><button data-lang="en" data-short="EN">English</button><button data-lang="uz" data-short="UZ">O'zbekcha</button><button data-lang="kz" data-short="KZ">Қазақша</button><button data-lang="ko" data-short="KO">한국어</button></div></div><a class="nav-tel" href="tel:+998900115074"><i class="ph-fill ph-phone"></i>+998 90 011 50 74</a><button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i class="ph-bold ph-list"></i></button></div>
 </div></nav>
-<div class="mnav" id="mnav" aria-hidden="true" inert><a href="index.html">Главная</a><a href="index.html#apts">Апартаменты</a><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a><a href="tel:+998900115074">+998 90 011 50 74</a><div class="langsw"><button data-lang="ru" class="active">RU</button><button data-lang="en">EN</button><button data-lang="uz">UZ</button><button data-lang="kz">KZ</button><button data-lang="ko">KO</button></div></div>
+<div class="mnav" id="mnav" aria-hidden="true" inert><a href="index.html">Главная</a><a href="index.html#apts">Апартаменты</a><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="corporate.html">Для компаний</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a><a href="tel:+998900115074">+998 90 011 50 74</a><div class="langsw"><button data-lang="ru" class="active">RU</button><button data-lang="en">EN</button><button data-lang="uz">UZ</button><button data-lang="kz">KZ</button><button data-lang="ko">KO</button></div></div>
 <div class="intro" id="intro" aria-hidden="true"><div class="wave"><i></i><i></i><i></i><i></i><i></i></div></div>
 <header class="hero" id="main"><div class="wrap">
   <div class="hero-panel ph-hero has-show">
@@ -83,24 +55,20 @@ gtag('config', 'G-Z2B9MVPVZ9');
   </div>
 </div></header>
 <section id="posts"><div class="wrap"><div class="eyebrow" style="text-align:center">3 статьи</div><h2 class="giant">полезно почитать</h2>
-  <div class="blog-grid"><a class="post reveal" href="#apt-vs-hotel" style="--d:0s"><div class="img" style="background-image:url(assets/blog-apt-vs-hotel-2x1.webp)"></div><div class="body"><div class="eyebrow">Советы · 4 мин</div><h3>Квартира или отель: что выбрать в Ташкенте?</h3><p>Разбираем на цифрах и бытовых мелочах, когда апартаменты выигрывают у отеля — и когда нет.</p><span class="arrow-link">Читать статью</span></div></a><a class="post reveal" href="#48h" style="--d:0.1s"><div class="img" style="background-image:url(assets/blog-hazrati-2x1.webp)"></div><div class="body"><div class="eyebrow">Маршруты · 5 мин</div><h3>Что посмотреть в Ташкенте за 48 часов</h3><p>Плотный маршрут на выходные: от плова на Чорсу до заката над Tashkent City.</p><span class="arrow-link">Читать статью</span></div></a><a class="post reveal" href="#food" style="--d:0.2s"><div class="img" style="background-image:url(assets/blog-plov-2x1.webp)"></div><div class="body"><div class="eyebrow">Еда · 3 мин</div><h3>Где вкусно поесть рядом с Nest One</h3><p>Пять минут пешком — и вы в гастрономическом центре города. Рассказываем, куда идти.</p><span class="arrow-link">Читать статью</span></div></a></div>
+  <div class="blog-grid"><a class="post reveal" href="#apt-vs-hotel" style="--d:0s"><div class="img" data-bg="assets/blog-apt-vs-hotel-2x1.webp"></div><div class="body"><div class="eyebrow">Советы · 4 мин</div><h3>Квартира или отель: что выбрать в Ташкенте?</h3><p>Разбираем на цифрах и бытовых мелочах, когда апартаменты выигрывают у отеля — и когда нет.</p><span class="arrow-link">Читать статью</span></div></a><a class="post reveal" href="#48h" style="--d:0.1s"><div class="img" data-bg="assets/blog-hazrati-2x1.webp" data-bg-m="assets/blog-hazrati-2x1-m.webp"></div><div class="body"><div class="eyebrow">Маршруты · 5 мин</div><h3>Что посмотреть в Ташкенте за 48 часов</h3><p>Плотный маршрут на выходные: от плова на Чорсу до заката над Tashkent City.</p><span class="arrow-link">Читать статью</span></div></a><a class="post reveal" href="#food" style="--d:0.2s"><div class="img" data-bg="assets/blog-plov-2x1.webp" data-bg-m="assets/blog-plov-2x1-m.webp"></div><div class="body"><div class="eyebrow">Еда · 3 мин</div><h3>Где вкусно поесть рядом с Nest One</h3><p>Пять минут пешком — и вы в гастрономическом центре города. Рассказываем, куда идти.</p><span class="arrow-link">Читать статью</span></div></a></div>
 </div></section>
-<section><div class="wrap"><article class="article reveal" id="apt-vs-hotel"><div class="img" style="background-image:url(assets/blog-apt-vs-hotel-2x1.webp)"></div><div><div class="eyebrow">Советы · 4 мин</div><h2>Квартира или отель: что выбрать в Ташкенте?</h2><p>Отель удобен, когда вы приехали на одну ночь и вам нужен только сон и завтрак. Во всех остальных сценариях апартаменты почти всегда практичнее: у вас есть кухня (экономия на ресторанах — от $20–30 в день), стиральная машина (актуально в поездках дольше трёх дней) и вдвое больше площади за те же деньги.</p><p>В NovaHome к этому добавляется то, чего нет у классической «посуточки»: заселение без ключей и встреч в любое время суток, поддержка 24/7, отельное бельё и уборка. А инфраструктура Nest One — спортзал, смотровая площадка, приватный парк — работает как пятизвёздочный фитнес и лаундж, включённые в цену.</p><p>Когда всё же отель? Если вам принципиален ежедневный шведский стол и консьерж в лобби. В остальном — считайте: за неделю проживания разница в бюджете достигает $150–200 в пользу апартаментов.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article><article class="article reveal" id="48h"><div class="img" style="background-image:url(assets/blog-hazrati-2x1.webp)"></div><div><div class="eyebrow">Маршруты · 5 мин</div><h2>Что посмотреть в Ташкенте за 48 часов</h2><p>День первый — классика. Утро начните на базаре Чорсу: горячие лепёшки, специи и самый честный плов в чайхане неподалёку. Дальше — старый город: медресе Кукельдаш и комплекс Хазрати Имам с одним из древнейших Коранов мира. Вечером спуститесь в ташкентское метро — станции Космонавтов и Алишера Навои выглядят как подземные дворцы.</p><p>День второй — новый Ташкент. Он весь вокруг вас: парк Tashkent City с озером и поющими фонтанами начинается прямо у подножия Nest One. Днём — Magic City и торговый центр, вечером — ужин с видом и обязательный подъём на смотровую площадку на 48 этаже: весь город на ладони, а вам — только спуститься домой на лифте.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article><article class="article reveal" id="food"><div class="img" style="background-image:url(assets/blog-plov-2x1.webp)"></div><div><div class="eyebrow">Еда · 3 мин</div><h2>Где вкусно поесть рядом с Nest One</h2><p>Главный секрет локации NovaHome: не нужно никуда ехать. Вокруг Tashkent City собрались лучшие кухни города — от узбекской классики до японских изакая. За пловом и шашлыком идите в рестораны национальной кухни у парка: порции здесь рассчитаны на голодных путешественников.</p><p>Завтраки и кофе — в кофейнях на бульваре: сырники, круассаны и флэт-уайт не хуже, чем в Москве или Алматы. Вечером загляните в фуд-холл Tashkent City Mall — десятки кухонь под одной крышей, когда компания не может договориться. А если хочется ужина «по случаю» — панорамные рестораны соседних башен бронируйте заранее: закатные столики разбирают первыми.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article></div></section>
+<section><div class="wrap"><article class="article reveal" id="apt-vs-hotel"><div class="img" data-bg="assets/blog-apt-vs-hotel-2x1.webp"></div><div><div class="eyebrow">Советы · 4 мин</div><h2>Квартира или отель: что выбрать в Ташкенте?</h2><p>Отель удобен, когда вы приехали на одну ночь и вам нужен только сон и завтрак. Во всех остальных сценариях апартаменты почти всегда практичнее: у вас есть кухня (экономия на ресторанах — от $20–30 в день), стиральная машина (актуально в поездках дольше трёх дней) и вдвое больше площади за те же деньги.</p><p>В NovaHome к этому добавляется то, чего нет у классической «посуточки»: заселение без ключей и встреч в любое время суток, поддержка 24/7, отельное бельё и уборка. А инфраструктура Nest One — спортзал, смотровая площадка, приватный парк — работает как пятизвёздочный фитнес и лаундж, включённые в цену.</p><p>Когда всё же отель? Если вам принципиален ежедневный шведский стол и консьерж в лобби. В остальном — считайте: за неделю проживания разница в бюджете достигает $150–200 в пользу апартаментов.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article><article class="article reveal" id="48h"><div class="img" data-bg="assets/blog-hazrati-2x1.webp" data-bg-m="assets/blog-hazrati-2x1-m.webp"></div><div><div class="eyebrow">Маршруты · 5 мин</div><h2>Что посмотреть в Ташкенте за 48 часов</h2><p>День первый — классика. Утро начните на базаре Чорсу: горячие лепёшки, специи и самый честный плов в чайхане неподалёку. Дальше — старый город: медресе Кукельдаш и комплекс Хазрати Имам с одним из древнейших Коранов мира. Вечером спуститесь в ташкентское метро — станции Космонавтов и Алишера Навои выглядят как подземные дворцы.</p><p>День второй — новый Ташкент. Он весь вокруг вас: парк Tashkent City с озером и поющими фонтанами начинается прямо у подножия Nest One. Днём — Magic City и торговый центр, вечером — ужин с видом и обязательный подъём на смотровую площадку на 48 этаже: весь город на ладони, а вам — только спуститься домой на лифте.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article><article class="article reveal" id="food"><div class="img" data-bg="assets/blog-plov-2x1.webp" data-bg-m="assets/blog-plov-2x1-m.webp"></div><div><div class="eyebrow">Еда · 3 мин</div><h2>Где вкусно поесть рядом с Nest One</h2><p>Главный секрет локации NovaHome: не нужно никуда ехать. Вокруг Tashkent City собрались лучшие кухни города — от узбекской классики до японских изакая. За пловом и шашлыком идите в рестораны национальной кухни у парка: порции здесь рассчитаны на голодных путешественников.</p><p>Завтраки и кофе — в кофейнях на бульваре: сырники, круассаны и флэт-уайт не хуже, чем в Москве или Алматы. Вечером загляните в фуд-холл Tashkent City Mall — десятки кухонь под одной крышей, когда компания не может договориться. А если хочется ужина «по случаю» — панорамные рестораны соседних башен бронируйте заранее: закатные столики разбирают первыми.</p><a class="arrow-link" href="booking.html#book">Забронировать апартаменты</a></div></article></div></section>
 <section><div class="wrap"><div class="dark reveal cta-dark">
   <div class="eyebrow">После прочтения</div>
   <h2 class="giant" style="text-align:left;margin-bottom:16px">Nest One</h2>
   <div class="dark-grid"><div><p>Все места из статей — в пешей доступности от дома. Метро в минуте, парк и молл — в пяти.</p></div><div class="cta-dark-side"><a class="btn btn-primary inv" href="booking.html#book">Забронировать</a><a class="btn btn-ghost" href="tel:+998900115074">+998 90 011 50 74</a></div></div>
 </div></div></section>
 <footer><div class="wrap">
-  <div class="state reveal">
-    <div><div class="eyebrow">Nova Home</div><h2>Я всегда верил, что дом определяют не стены и не адрес. Его определяют <b>люди</b> и то, как ты себя рядом с ними <b>чувствуешь</b>.</h2></div>
-    <div class="side"><div class="sig-block"><img class="sig-img" src="assets/signature.png" alt="Подпись Timur Zakirov" loading="lazy"><div class="sig">Timur Zakirov<small>CEO &amp; Founder</small></div></div><div class="contacts"><a href="tel:+998900115074">+998 90 011 50 74</a><small>Основной номер</small><a href="tel:+998333200528">+998 33 320 05 28</a><small>Дополнительный номер</small></div></div>
-  </div>
   <div class="fcols">
-    <div><h5>Разделы</h5><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a></div>
+    <div><h5>Разделы</h5><a href="booking.html">Бронирование</a><a href="blog.html">Блог</a><a href="corporate.html">Для компаний</a><a href="contacts.html">Контакты</a><a href="faq.html">FAQ</a></div>
     <div><h5>Апартаменты</h5><a href="booking.html?type=Студия#apts">Студии</a><a href="booking.html?type=1 спальня#apts">1 спальня</a><a href="booking.html#apts">Все 20 апартаментов</a></div>
     <div><h5>Связаться</h5><a href="https://t.me/novahome_uzb" target="_blank" rel="noopener">@novahome_uzb</a><a href="https://wa.me/998900115074" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/novahome_uzb/" target="_blank" rel="noopener">Instagram</a><a href="contacts.html">Все контакты</a></div>
-    <div><h5>Принимаем к оплате</h5><div class="pay"><img src="assets/pay-visa.webp" alt="Visa"><img src="assets/pay-wu.webp" alt="Western Union"><img src="assets/pay-payoneer.webp" alt="Payoneer"><img src="assets/pay-applepay.webp" alt="Apple Pay"><img src="assets/pay-gpay.webp" alt="Google Pay"></div></div>
+    <div><h5>Принимаем к оплате</h5><div class="pay"><img src="assets/pay-visa.webp" alt="Visa" loading="lazy" decoding="async"><img src="assets/pay-wu.webp" alt="Western Union" loading="lazy" decoding="async"><img src="assets/pay-payoneer.webp" alt="Payoneer" loading="lazy" decoding="async"><img src="assets/pay-applepay.webp" alt="Apple Pay" loading="lazy" decoding="async"><img src="assets/pay-gpay.webp" alt="Google Pay" loading="lazy" decoding="async"></div></div>
   </div>
   <div class="socials"><a href="tel:+998900115074" aria-label="Позвонить"><i class="ph-fill ph-phone"></i></a><a href="https://t.me/novahome_uzb" target="_blank" rel="noopener" aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a><a class="wa" href="https://wa.me/998900115074" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph-fill ph-whatsapp-logo"></i></a><a href="https://www.instagram.com/novahome_uzb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a></div>
   <div class="copy"><span>© 2026 NovaHome · Nest One, Ташкент</span><a href="docs/oferta.pdf" target="_blank" rel="noopener">Договор оферты</a><span>ул. Батыра Закирова 1А/1</span></div>
@@ -116,6 +84,23 @@ gtag('config', 'G-Z2B9MVPVZ9');
     <div class="mdock-note"><i class="ph-fill ph-check-circle"></i>Ответим за 5 минут · 24/7</div>
   </div>
 </div>
-<script src="i18n.js" defer></script>
-<script src="site.js" defer></script>
+<script src="i18n.js?v=muuxd7w6" defer></script>
+<script src="site.js?v=muuxd7w6" defer></script>
+<script src="quickbook.js?v=muuxd7w6" defer></script>
+<script>window.NV_BOOK_API=window.NV_BOOK_API||'https://novahome-booking.timurzakirov200528.workers.dev';</script>
+<script src="content.js?v=muuxd7w6" defer></script>
+<div id="nvReg" hidden>
+  <button class="x" aria-label="Закрыть">×</button>
+  <div class="nv-reg-ic"><i class="ph-fill ph-gift"></i></div>
+  <h4>−5% на каждую бронь</h4>
+  <p>Создайте профиль гостя за 10 секунд — скидка применится сразу и останется на все следующие поездки.</p>
+  <div class="form">
+    <input id="nvRegName" type="text" placeholder="Имя" autocomplete="name">
+    <input id="nvRegEmail" type="email" placeholder="Email" autocomplete="email" maxlength="120">
+    <input id="nvRegPhone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel" inputmode="tel"><input id="nvRegHp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <button class="go" type="button">Получить −5%</button>
+    <small class="nv-reg-note">Без пароля. Профиль привязан к email — скидка узнаёт вас на любом устройстве.</small>
+  </div>
+</div>
+<div id="nvProfile" role="button" tabindex="0"><span class="av"></span><span class="nm"></span></div>
 </body></html>
